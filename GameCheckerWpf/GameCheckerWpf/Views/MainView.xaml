@@ -14,7 +14,11 @@
 
         <StackPanel Grid.Column="0" Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <Image Width="60" Height="60" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\icons8-joystick-60.png" Margin="10,0,0,0"></Image>
+                <Image Width="60"
+                       Height="60"
+                       Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\icons8-joystick-60.png"
+                       Margin="10,0,0,0">
+                </Image>
                 <TextBlock Text="GameChecker"
                            Foreground="White"
                            Margin="10,10,0,0"
@@ -32,12 +36,36 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Image Width="60" Height="60" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\YellowJoystick.png" Margin="10,0,0,0" Grid.Column="0"></Image>
-                    <Image Width="60" Height="60" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\JoystickRed.png" Margin="10,0,0,0" Grid.Column="1"></Image>
-                    <Image Width="60" Height="60" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\YellowJoystick.png" Margin="10,0,0,0" Grid.Column="2"></Image>
-                    <Image Width="60" Height="60" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\JoystickRed.png" Margin="10,0,0,0" Grid.Column="3"></Image>
+                    <Image Width="60"
+                           Height="60"
+                           Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\YellowJoystick.png"
+                           Margin="10,0,0,0"
+                           Grid.Column="0">
+                    </Image>
+                    <Image Width="60"
+                           Height="60"
+                           Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\JoystickRed.png"
+                           Margin="10,0,0,0"
+                           Grid.Column="1">
+                    </Image>
+                    <Image Width="60"
+                           Height="60"
+                           Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\YellowJoystick.png"
+                           Margin="10,0,0,0"
+                           Grid.Column="2">
+                    </Image>
+                    <Image Width="60"
+                           Height="60"
+                           Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\JoystickRed.png"
+                           Margin="10,0,0,0"
+                           Grid.Column="3">
+                    </Image>
                 </Grid>
-                <TextBlock Text="Most popular" FontFamily="Fonts/#Dosis" Foreground="White" FontSize="25" Margin="130,130,100,-90"/>
+                <TextBlock Text="Most popular"
+                           FontFamily="Fonts/#Dosis"
+                           Foreground="White"
+                           FontSize="25"
+                           Margin="130,130,100,-90"/>
 
                 <StackPanel Orientation="Horizontal" Margin="0,90,0,0">
                     <Button x:Name="btn_pervious" Content="Previous" Click="btn_pervious_Click" Margin="10,0,0,0" Background="Orange" Foreground="White" FontSize="14" FontFamily="Fonts/#Dosis" Width="60" Height="60" >
