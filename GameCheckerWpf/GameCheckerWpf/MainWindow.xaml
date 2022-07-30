@@ -1,0 +1,297 @@
+﻿<Window x:Class="GameCheckerWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameCheckerWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800"
+        WindowStyle="None"
+        Background="#181735"
+        xmlns:uc="clr-namespace:GameCheckerWpf.Views"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--<uc:MenuBar Grid.ColumnSpan="2">
+        </uc:MenuBar>-->
+        <!--<uc:MainView Grid.Row="1">
+            
+        </uc:MainView>-->
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.Row="1">
+            
+        </ContentControl>
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--<uc:MenuBar Grid.ColumnSpan="4"></uc:MenuBar>-->
+            <!--<TextBlock Text="GameChecker"
+                       Foreground="White"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,0"
+                       FontFamily="Fonts/#Dosis"/>-->
+            <Button x:Name="btn_home"
+                    Content="GameChecker" 
+                    Margin="7,0,0,0" 
+                    BorderThickness="0" 
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                    Command="{Binding UpdateViewCommand}" 
+                    CommandParameter="Home" 
+                    Background="#0F0F2D" 
+                    Foreground="White" 
+                    FontFamily="Fonts/#Dosis" 
+                    Width="130" 
+                    Grid.Column="0" 
+                    HorizontalAlignment="Left" 
+                    Height="20">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn_performance" 
+                    Content="Check my performance" 
+                    Margin="7,0,0,0" 
+                    BorderThickness="0" 
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                    Command="{Binding UpdateViewCommand}" 
+                    CommandParameter="Performance" 
+                    Background="#0F0F2D" 
+                    Foreground="White" 
+                    FontFamily="Fonts/#Dosis" 
+                    Width="130" 
+                    Grid.Column="1" 
+                    Height="20">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn_close" 
+                    Click="btn_close_Click" 
+                    Content="x" 
+                    Margin="7,0,0,0" 
+                    BorderThickness="0" 
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                    Background="#0F0F2D" 
+                    Foreground="Red" 
+                    FontFamily="Fonts/#Dosis" 
+                    Width="25" Grid.Column="3" 
+                    Height="25" 
+                    HorizontalAlignment="Right">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn_login"
+                    Content="Login" 
+                    Margin="7,0,0,0" 
+                    BorderThickness="0"
+                    Style="{StaticResource 
+                {x:Static ToolBar.ButtonStyleKey}}" 
+                    HorizontalAlignment="Right" 
+                    Command="{Binding UpdateViewCommand}" 
+                    CommandParameter="Login" 
+                    Background="#0F0F2D" 
+                    Foreground="White" 
+                    FontFamily="Fonts/#Dosis" 
+                    Width="70"
+                    Grid.Column="2" 
+                    Height="20">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+    </Grid>
+    <!--<StackPanel Grid.Column="0" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Image Width="60" Height="60" Source="Images/icons8-joystick-60.png" Margin="10,0,0,0"></Image>
+                <TextBlock Text="GameChecker"
+                           Foreground="White"
+                           Margin="10,10,0,0"
+                           FontSize="30"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="Fonts/#Dosis" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Height="384">
+                <Grid Height="100" Margin="0,0,0,-90">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Width="60" Height="60" Source="Images/YellowJoystick.png" Margin="10,0,0,0" Grid.Column="0"></Image>
+                    <Image Width="60" Height="60" Source="Images/JoystickRed.png" Margin="10,0,0,0" Grid.Column="1"></Image>
+                    <Image Width="60" Height="60" Source="Images/YellowJoystick.png" Margin="10,0,0,0" Grid.Column="2"></Image>
+                    <Image Width="60" Height="60" Source="Images/JoystickRed.png" Margin="10,0,0,0" Grid.Column="3"></Image>
+                </Grid>
+                <TextBlock Text="Most popular" FontFamily="Fonts/#Dosis" Foreground="White" FontSize="25" Margin="130,130,100,-90"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,90,0,0">
+                    <Button x:Name="btn_pervious" Content="Previous" Margin="10,0,0,0" Background="Orange" Foreground="White" FontSize="14" FontFamily="Fonts/#Dosis" Click="btn_pervious_Click" Width="60" Height="60" >
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="25"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Border CornerRadius="8,0,8,0" Width="250" Height="190" RenderTransformOrigin="0.508,1.168" Margin="10,10,0,0">
+                        <Border.Background>
+                            <ImageBrush x:Name="PicHolder" Stretch="Fill" ImageSource="Images/1.jpg"/>
+                        </Border.Background>
+                    </Border>
+                    <Button x:Name="btn_next" Content="Next" Margin="7,0,0,0" Background="Orange" Foreground="White" FontFamily="Fonts/#Dosis" FontSize="14" Click="btn_next_Click" Width="60" Height="60">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="25"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+                --><!--<TextBlock Text="{Binding GameText, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" x:Name="GameTitle" FontFamily="Fonts/#Dosis" Foreground="White" FontSize="25" Margin="60,0,0,0"/>--><!--
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Grid.Row="10" Grid.Column="12" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="7" Grid.Column="11" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="6" Grid.Column="12" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="5" Grid.Column="11" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="10" Grid.Column="10" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="6" Grid.Column="10" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="5" Grid.Column="9" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="4" Grid.Column="10" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="3" Grid.Column="9" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="7" Grid.Column="9" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="6" Grid.Column="8" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="5" Grid.Column="7" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="4" Grid.Column="8" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="2" Grid.Column="8" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="3" Grid.Column="7" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="4" Grid.Column="6" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="2" Grid.Column="6" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="1" Grid.Column="7" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+
+            </Grid>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="12*"></ColumnDefinition>
+                    <ColumnDefinition Width="18*"/>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                    <ColumnDefinition Width="31*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="7" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="5" Grid.Column="6" HorizontalAlignment="Left" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31" Grid.ColumnSpan="3"/>
+                <Rectangle Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="4" Grid.Column="8" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="3" Grid.Column="6" HorizontalAlignment="Left" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31" Grid.ColumnSpan="3"/>
+                <Rectangle Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="1" Grid.Column="6" HorizontalAlignment="Left" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31" Grid.ColumnSpan="3"/>
+                <Rectangle Grid.Row="2" Grid.Column="8" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="3" Grid.Column="9" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="1" Grid.Column="9" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Column="8" HorizontalAlignment="Center" Fill="Orange" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="2" Grid.Column="10" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="1" Grid.Column="11" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Column="10" HorizontalAlignment="Center" Fill="Red" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Column="12" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+                <Rectangle Grid.Row="8" Grid.Column="5" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
+            </Grid>
+        </Grid>-->
+    </Grid>
+</Window>
