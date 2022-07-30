@@ -81,7 +81,7 @@ namespace GameCheckerWpf.Models
         public ComputerHardware() 
         {
             this.OperatingSystem = System.Environment.OSVersion.ToString();
-            this.MotherBoard = "Laptop motherboard";
+            this.MotherBoard = getMotherBoardInfo();
             this.GraphicCard = getGraphicsCardInfo();
             this.CentralProcessingUnit = getProcessorInfo();
             this.randomAccessMemory = getRandomAccessMemoryInfo();
@@ -104,6 +104,34 @@ namespace GameCheckerWpf.Models
             }
 
             return graphicsName;
+        }
+
+        private string getMotherBoardInfo()
+        {
+            //ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
+            //ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_MotherboardDevice");
+
+            //string motherboardInfo = "";
+
+            //foreach (ManagementObject queryObj in baseboardSearcher.Get())
+            //{
+            //    motherboardInfo = queryObj["Model"].ToString();
+            //}
+
+            //return motherboardInfo;
+
+            SelectQuery Sq = new SelectQuery("Win32_MotherboardDevice");
+            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            StringBuilder sb = new StringBuilder();
+
+            string motherboardInfo = "";
+
+            foreach (ManagementObject mo in osDetailsCollection)
+            {
+                motherboardInfo = (string)mo["Name"] + " GA-H61M";
+            }
+            return motherboardInfo;
         }
 
         private string getProcessorInfo()
@@ -132,7 +160,7 @@ namespace GameCheckerWpf.Models
             }
 
             int ramInt = int.Parse(myRAMsize);
-            int totalInt = (ramInt / 1000000) - 2;
+            int totalInt = (ramInt / 1000000)-2;
             myRAMsize = totalInt.ToString() + "GB";
 
             return myRAMsize;
