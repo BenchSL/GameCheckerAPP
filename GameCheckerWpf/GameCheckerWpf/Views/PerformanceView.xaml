@@ -21,25 +21,25 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Your specifications" Grid.Row="0" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" FontSize="40"></TextBlock>
+            <TextBlock Text="Specifications" Grid.Row="0" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="40"></TextBlock>
 
-            <TextBlock Text="{Binding OperatingSystem}" x:Name="osTxt" TextWrapping="Wrap" Margin="56,25,0,0" TextAlignment="Left" Grid.Row="1" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" FontSize="20"></TextBlock>
+            <TextBlock Text="{Binding OperatingSystem}" x:Name="osTxt" TextWrapping="Wrap" Margin="65,25,0,0" TextAlignment="Left" Grid.Row="1" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="20"></TextBlock>
             <Image Width="60" Height="60" HorizontalAlignment="Left" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\windowsLogo.png" Margin="0,0,0,0" Grid.Row="1"></Image>
 
-            <TextBlock Text="{Binding MotherBoard}" TextWrapping="Wrap" Margin="56,25,0,0" TextAlignment="Left" Grid.Row="2" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" FontSize="20"></TextBlock>
+            <TextBlock Text="{Binding MotherBoard}" TextWrapping="Wrap" Margin="65,25,0,0" TextAlignment="Left" Grid.Row="2" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="20"></TextBlock>
             <Image Width="60" Height="60" HorizontalAlignment="Left" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\motherboardLogo.png" Margin="0,0,0,0" Grid.Row="2"></Image>
 
-            <TextBlock Text="{Binding GraphicCard}" TextWrapping="Wrap" Margin="56,25,0,0" TextAlignment="Left" Grid.Row="3" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" FontSize="20"></TextBlock>
+            <TextBlock Text="{Binding GraphicCard}" TextWrapping="Wrap" Margin="60,25,0,0" TextAlignment="Left" Grid.Row="3" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="20"></TextBlock>
             <Image Width="60" Height="60" HorizontalAlignment="Left" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\GPUlogo.png" Margin="0,0,0,0" Grid.Row="3"></Image>
 
-            <TextBlock Text="{Binding CentralProcessingUnit}" TextWrapping="Wrap" Margin="56,25,0,0" TextAlignment="Left" Grid.Row="4" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" FontSize="20"></TextBlock>
+            <TextBlock Text="{Binding CentralProcessingUnit}" TextWrapping="Wrap" Margin="65,25,0,0" TextAlignment="Left" Grid.Row="4" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="20"></TextBlock>
             <Image Width="60" Height="60" HorizontalAlignment="Left" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\CPUlogo.png" Margin="0,0,0,0" Grid.Row="4"></Image>
 
-            <TextBlock Text="{Binding RandomAccessMemory}" TextWrapping="Wrap" Margin="56,25,0,0" TextAlignment="Left" Grid.Row="5" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" FontSize="20"></TextBlock>
+            <TextBlock Text="{Binding RandomAccessMemory}" TextWrapping="Wrap" Margin="56,25,0,0" TextAlignment="Left" Grid.Row="5" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="20"></TextBlock>
             <Image Width="60" Height="60" HorizontalAlignment="Left" Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\RAMlogo.png" Margin="0,0,0,0" Grid.Row="5"></Image>
         </Grid>
         <DataGrid x:Name="dataGame" AutoGenerateColumns="True" Grid.Column="1" Background="#132247">
         </DataGrid>
-        <!-- {Binding CentralProcessingUnit} -->
+        <!-- {Binding OperatingSystem} -->
     </Grid>
 </UserControl>
