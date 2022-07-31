@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCheckerAPI", "GameCheckerAPI\GameCheckerAPI.csproj", "{870BC4DA-DA8C-4E87-8365-4FD7A44D3935}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCheckerAPI", "GameCheckerAPI\GameCheckerAPI.csproj", "{870BC4DA-DA8C-4E87-8365-4FD7A44D3935}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCheckerWpf", "..\GameCheckerWpf\GameCheckerWpf\GameCheckerWpf.csproj", "{6DF36EA7-6463-4713-8068-94688CF40285}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{870BC4DA-DA8C-4E87-8365-4FD7A44D3935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{870BC4DA-DA8C-4E87-8365-4FD7A44D3935}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{870BC4DA-DA8C-4E87-8365-4FD7A44D3935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF36EA7-6463-4713-8068-94688CF40285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF36EA7-6463-4713-8068-94688CF40285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF36EA7-6463-4713-8068-94688CF40285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF36EA7-6463-4713-8068-94688CF40285}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
