@@ -68,6 +68,26 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button x:Name="btn_monitor" 
+                    Content="Monitor hardware" 
+                    Margin="7,0,0,0" 
+                    BorderThickness="0" 
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+                    Command="{Binding UpdateViewCommand}" 
+                    CommandParameter="Hardware" 
+                    Background="#0F0F2D" 
+                    Foreground="White" 
+                    FontFamily="Fonts/#Dosis" 
+                    Width="130" 
+                    HorizontalAlignment="Left"
+                    Grid.Column="2" 
+                    Height="20">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             <Button x:Name="btn_close" 
                     Click="btn_close_Click" 
                     Content="x" 

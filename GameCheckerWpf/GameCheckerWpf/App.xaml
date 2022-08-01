@@ -15,5 +15,8 @@
         <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
             <views:MainView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HardwareMonitorViewModel}">
+            <views:HardwareMonitor />
+        </DataTemplate>
     </Application.Resources>
 </Application>
