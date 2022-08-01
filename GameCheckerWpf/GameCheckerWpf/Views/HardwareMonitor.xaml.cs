@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -14,15 +15,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameCheckerWpf.Threads;
 
 namespace GameCheckerWpf.Views
 {
     /// <summary>
     /// Interaction logic for HardwareMonitor.xaml
     /// </summary>
-    public partial class HardwareMonitor : UserControl
+    public partial class HardwareMonitor : UserControl, ISynchronizeInvoke
     {
         private System.Timers.Timer _timer;
+
+        public bool InvokeRequired => throw new NotImplementedException();
 
         public HardwareMonitor()
         {
@@ -45,6 +49,8 @@ namespace GameCheckerWpf.Views
             int cpuValue = getCpuValue();
             int memValue = getMemValue();
 
+            if(prog_cpu.)
+
             prog_cpu.Value = cpuValue;
             prog_mem.Value = memValue;
         }
@@ -63,6 +69,21 @@ namespace GameCheckerWpf.Views
             var memCounter = new PerformanceCounter("Memory", "% Committed Bytes in Use");
             int returnvalue = (int)memCounter.NextValue();
             return returnvalue;
+        }
+
+        public IAsyncResult BeginInvoke(Delegate method, object?[]? args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object? EndInvoke(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object? Invoke(Delegate method, object?[]? args)
+        {
+            throw new NotImplementedException();
         }
     }
 }
