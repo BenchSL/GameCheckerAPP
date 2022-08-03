@@ -9,7 +9,7 @@ using System.Management;
 
 namespace GameCheckerWpf.Models
 {
-    public class ComputerHardware : INotifyPropertyChanged
+    public class ComputerHardware : BaseClass
     {
         private string operatingSystem;
         private string centralProcessingUnit;
@@ -108,18 +108,6 @@ namespace GameCheckerWpf.Models
 
         private string getMotherBoardInfo()
         {
-            //ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-            //ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_MotherboardDevice");
-
-            //string motherboardInfo = "";
-
-            //foreach (ManagementObject queryObj in baseboardSearcher.Get())
-            //{
-            //    motherboardInfo = queryObj["Model"].ToString();
-            //}
-
-            //return motherboardInfo;
-
             SelectQuery Sq = new SelectQuery("Win32_MotherboardDevice");
             ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
             ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
@@ -164,12 +152,6 @@ namespace GameCheckerWpf.Models
             myRAMsize = totalInt.ToString() + "GB";
 
             return myRAMsize;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName]string propertyName = null)
-        {
-             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
        }
     }

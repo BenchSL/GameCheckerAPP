@@ -3,13 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xrpb="http://XamlRadialProgressBar/DotNet"
              xmlns:local="clr-namespace:GameCheckerWpf.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="#181735">
     <Grid>
-        <ProgressBar x:Name="prog_cpu" HorizontalAlignment="Left" Height="47" Margin="112,110,0,0" VerticalAlignment="Top" Width="614"/>
-        <ProgressBar x:Name="prog_mem" HorizontalAlignment="Left" Height="48" Margin="112,0,0,0" VerticalAlignment="Center" Width="614"/>
-        <Button x:Name="btn_start" Content="Start" FontSize="30" Click="btn_start_Click" HorizontalAlignment="Left" Margin="112,317,0,0" VerticalAlignment="Top" Height="57" Width="188"/>
-
+        <xrpb:RadialProgressBar Value="{Binding CountCpu, UpdateSourceTrigger=PropertyChanged}"
+			    Width="100" Height="100"
+			    Foreground="White" />
+        <Label Content="{Binding CountCpu}" FontSize="30" Margin="0,0,0,250"></Label>
+        <xrpb:RadialProgressBar Value="{Binding CountMemory, UpdateSourceTrigger=PropertyChanged}"
+			    Width="100" Height="100"
+			    Foreground="White" />
+        <Label Content="{Binding CountMemory}" FontSize="30" Margin="0,260,0,150"></Label>
+        <Label x:Name="lbl_cpu" FontSize="30" Foreground="White"></Label>
     </Grid>
 </UserControl>

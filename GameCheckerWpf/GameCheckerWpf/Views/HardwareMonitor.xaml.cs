@@ -15,75 +15,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GameCheckerWpf.Threads;
+using System.Windows.Threading;
 
 namespace GameCheckerWpf.Views
 {
     /// <summary>
     /// Interaction logic for HardwareMonitor.xaml
     /// </summary>
-    public partial class HardwareMonitor : UserControl, ISynchronizeInvoke
+    public partial class HardwareMonitor : UserControl
     {
-        private System.Timers.Timer _timer;
-
-        public bool InvokeRequired => throw new NotImplementedException();
-
         public HardwareMonitor()
         {
             InitializeComponent();
-            _timer = new System.Timers.Timer();
-            _timer.Interval = 3000; //set timer to 1 second
-            _timer.Elapsed += OntimedEvent;
-            _timer.AutoReset = true;
-           
+            DataContext = new GameCheckerWpf.Models.HardwareMonitor();
         }
 
         private void btn_start_Click(object sender, RoutedEventArgs e)
         {
-            _timer.Enabled = true;
-        }
-
-        private void OntimedEvent(object sender, ElapsedEventArgs e)
-        {
-            //monitor and get the values of the CPU and MEMORY
-            int cpuValue = getCpuValue();
-            int memValue = getMemValue();
-
-            if(prog_cpu.)
-
-            prog_cpu.Value = cpuValue;
-            prog_mem.Value = memValue;
-        }
-
-        private int getCpuValue()
-        {
-            var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_total");
-            cpuCounter.NextValue();
-            System.Threading.Thread.Sleep(1000);
-            int returnvalue = (int)cpuCounter.NextValue();
-            return returnvalue;
-        }
-
-        private int getMemValue()
-        {
-            var memCounter = new PerformanceCounter("Memory", "% Committed Bytes in Use");
-            int returnvalue = (int)memCounter.NextValue();
-            return returnvalue;
-        }
-
-        public IAsyncResult BeginInvoke(Delegate method, object?[]? args)
-        {
-            throw new NotImplementedException();
-        }
-
-        public object? EndInvoke(IAsyncResult result)
-        {
-            throw new NotImplementedException();
-        }
-
-        public object? Invoke(Delegate method, object?[]? args)
-        {
-            throw new NotImplementedException();
+            //_timer.Enabled = true;
         }
     }
+
+    
 }
