@@ -9,7 +9,7 @@
         WindowStyle="None"
         Background="#181735"
         xmlns:uc="clr-namespace:GameCheckerWpf.Views"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
