@@ -10,10 +10,12 @@ namespace GameCheckerWpf.Models
 {
     public class HardwareMonitor : BaseClass
     {
-        private double countCpu;
-        private double countMemory;
+        private string countCpu;
+        private string countMemory;
+        int countCpuInt;
+        int countMemoryInt;
 
-        public double CountCpu
+        public string CountCpu
         {
             get { return countCpu; }
             set 
@@ -23,7 +25,7 @@ namespace GameCheckerWpf.Models
             }
         }
 
-        public double CountMemory
+        public string CountMemory
         {
             get
             {
@@ -37,6 +39,34 @@ namespace GameCheckerWpf.Models
             }
         }
 
+        public int CountCpuInt
+        {
+            get
+            {
+                return countCpuInt;
+            }
+
+            set
+            {
+                countCpuInt = value;
+                OnPropertyChanged(nameof(CountCpuInt));
+            }
+        }
+
+        public int CountMemoryInt
+        {
+            get
+            {
+                return countMemoryInt;
+            }
+
+            set
+            {
+                countMemoryInt = value;
+                OnPropertyChanged(nameof(CountMemoryInt));
+            }
+        }
+
         private System.Timers.Timer _timer;
         PerformanceCounter myAppCPU = new PerformanceCounter("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
         PerformanceCounter MyMem = new PerformanceCounter("Memory", "% Committed Bytes In Use");
@@ -45,16 +75,18 @@ namespace GameCheckerWpf.Models
         {
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
-            //Check the CPU every 3 seconds
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 3);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             //Start the Timer
             dispatcherTimer.Start();
         }
 
         private void DispatcherTimer_Tick(object? sender, EventArgs e)
         {
-            CountCpu = myAppCPU.NextValue();
-            CountMemory = MyMem.NextValue();
+            CountCpuInt = (int)myAppCPU.NextValue();
+            CountCpu = $"{CountCpuInt.ToString()}%";
+
+            CountMemoryInt = (int)MyMem.NextValue();
+            CountMemory = $"{CountMemoryInt.ToString()}%";
         }
     }
 }
