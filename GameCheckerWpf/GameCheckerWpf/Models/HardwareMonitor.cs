@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -15,9 +16,10 @@ namespace GameCheckerWpf.Models
         private string countMemory;
         int countCpuInt;
         int countMemoryInt;
-        double realTimeCountMemoryUsage;
-        double realTimeCountCPUUsage;
-        Dictionary<int, double> performanceTracker;
+        ChartValues<double> realTimeCountMemoryUsage = new ChartValues<double>();
+        ChartValues<double> realTimeCountCPUUsage = new ChartValues<double>();
+        ChartValues<string> realTimeCountMemoryProcentage = new ChartValues<string>();
+        ChartValues<string> realTimeCountCPUProcentage = new ChartValues<string>();
 
         public string CountCpu
         {
@@ -70,7 +72,7 @@ namespace GameCheckerWpf.Models
                 OnPropertyChanged(nameof(CountMemoryInt));
             }
         }
-        public double RealTimeCountMemoryUsage
+        public ChartValues<double> RealTimeCountMemoryUsage
         {
             get { return realTimeCountMemoryUsage; }
             set
@@ -79,7 +81,7 @@ namespace GameCheckerWpf.Models
                 OnPropertyChanged(nameof(RealTimeCountMemoryUsage));
             }
         }
-        public double RealTimeCountCpuUsage
+        public ChartValues<double> RealTimeCountCpuUsage
         {
             get { return realTimeCountCPUUsage; }
             set
@@ -88,28 +90,56 @@ namespace GameCheckerWpf.Models
                 OnPropertyChanged(nameof(RealTimeCountCpuUsage));
             }
         }
-        public Dictionary<int, double> PerformanceTracker
+        public ChartValues<string> RealTimeCountMemoryProcentage
         {
-            get { return performanceTracker; }
+            get
+            {
+                return realTimeCountMemoryProcentage;
+            }
             set
             {
-                performanceTracker = value;
-                OnPropertyChanged(nameof(PerformanceTracker));
+                realTimeCountMemoryProcentage = value;
+                OnPropertyChanged("RealTimeCountMemoryProcentage");
+            }
+        }
+        public ChartValues<string> RealTimeCountCPUProcentage
+        {
+            get
+            {
+                return realTimeCountCPUProcentage;
+            }
+            set
+            {
+                realTimeCountCPUProcentage = value;
+                OnPropertyChanged("RealTimeCountCPUProcentage");
             }
         }
 
-        private System.Timers.Timer _timer;
         PerformanceCounter myAppCPU = new PerformanceCounter("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
         PerformanceCounter MyMem = new PerformanceCounter("Memory", "% Committed Bytes In Use");
 
         public HardwareMonitor()
         {
-            PerformanceTracker = new Dictionary<int, double>();
+            timer_start1();
+            timer_start2();
+        }
+
+        private void timer_start1()
+        {
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            //Start the Timer
+
             dispatcherTimer.Start();
+        }
+
+        private void timer_start2()
+        {
+            System.Windows.Threading.DispatcherTimer dispatcherTimer1 = new System.Windows.Threading.DispatcherTimer(); //timer is used for real time charting
+            dispatcherTimer1.Tick += DispatcherTimer1_Tick;
+            dispatcherTimer1.Interval = new TimeSpan(0, 0, 10);
+
+            dispatcherTimer1.Start();
         }
 
         private void DispatcherTimer_Tick(object? sender, EventArgs e)
@@ -119,11 +149,20 @@ namespace GameCheckerWpf.Models
 
             CountMemoryInt = (int)MyMem.NextValue();
             CountMemory = $"{CountMemoryInt.ToString()}%";
-            double infomem = getRandomAccessMemoryInfo();
-            double test = infomem / 100;
-            RealTimeCountMemoryUsage = test * infomem;
+            //double infomem = getRandomAccessMemoryInfo();
+            //double test = infomem / 100;
+            //RealTimeCountMemoryUsage = test * infomem;
 
-            PerformanceTracker.Add(CountMemoryInt, RealTimeCountMemoryUsage*3);
+            //PerformanceTracker.Add(CountMemoryInt, RealTimeCountMemoryUsage*3);
+        }
+
+        private void DispatcherTimer1_Tick(object? sender, EventArgs e)
+        {
+            double infomem = getRandomAccessMemoryInfo();
+            double decimalNum = infomem / 100;
+            double memoryUsage = infomem * decimalNum;
+            
+            //performanceTracker.Add(CountMemoryInt, memoryUsage * 3); //dictionary key values cannot be matching
         }
 
         private int getRandomAccessMemoryInfo()
@@ -141,11 +180,6 @@ namespace GameCheckerWpf.Models
             int totalInt = (ramInt / 1000000);
 
             return totalInt;
-        }
-
-        private Dictionary<int, double> returnDictionaryTest()
-        {
-            return PerformanceTracker;
         }
     }
 }

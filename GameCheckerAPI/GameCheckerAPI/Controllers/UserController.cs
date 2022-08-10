@@ -18,7 +18,13 @@ namespace GameCheckerAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetGames()
+        public async Task<ActionResult<bool>> LoginUser([FromBody]UserModel user)
+        {
+            return await userRepository.loginUser(user);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetUsers()
         {
             return Ok(await userRepository.GetUsers());
         }

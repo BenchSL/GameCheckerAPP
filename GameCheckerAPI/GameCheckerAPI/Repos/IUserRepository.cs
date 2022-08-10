@@ -6,6 +6,7 @@ namespace GameCheckerAPI.Repos
 {
     public interface IUserRepository
     {
+        Task<bool> loginUser(UserModel user);
         Task<IEnumerable<UserModel>> GetUsers();
         Task<UserModel> GetUser(int id);
         Task<UserModel> AddUser(UserModel user);
