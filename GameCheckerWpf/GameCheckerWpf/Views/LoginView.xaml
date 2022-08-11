@@ -5,8 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GameCheckerWpf.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#181735">
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Login" FontSize="30" />
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Login" FontSize="50" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontFamily="Times New Roman" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Username" FontFamily="Times New Roman" Foreground="White" FontSize="35" Margin="0,0,30,0"/>
+            <TextBox x:Name="txt_userName" Width="450" Height="50" FontFamily="Times New Roman" Margin="0,0,100,0" FontSize="40"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Password" FontFamily="Times New Roman" Foreground="White" FontSize="35" Margin="0,0,30,0"/>
+            <PasswordBox x:Name="txt_pass" Width="450" Height="50" FontFamily="Times New Roman" Margin="0,0,100,0" FontSize="40"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center" Orientation="Vertical">
+            <Button x:Name="btn_next" Content="Login" Margin="27,0,0,40" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Width="180" Height="60">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>
