@@ -6,22 +6,42 @@ using System.Threading.Tasks;
 
 namespace GameCheckerWpf.Models
 {
-    public class UserModel
+    public class UserModel : BaseClass
     {
-        public int id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        private int id;
+        private string username;
+        private string password;
 
-        public UserModel(string Username, string Password)
+        public string UserName
         {
-            this.Username = Username;
+            get { return username; }
+            set
+            {
+                username = value;
+                OnPropertyChanged(nameof(UserName));
+            }
+        }
+
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public UserModel(string UserName, string Password)
+        {
+            this.UserName = UserName;
             this.Password = Password;
         }
         public UserModel() { }
 
         public override string ToString()
         {
-            return $"id: {id} | Username: {Username} | Password: {Password}";
+            return $"id: {id} | Username: {UserName} | Password: {Password}";
         }
     }
 }
