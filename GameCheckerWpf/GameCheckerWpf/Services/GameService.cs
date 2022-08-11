@@ -34,13 +34,13 @@ namespace GameCheckerWpf.Services
             return await client.GetFromJsonAsync<GameModel>($"http://localhost:31686/api/Game/{id}");
         }
 
-        public async Task<GameModel> updateGameModel(GameModel gModel)
+        public async Task<GameModel> updateGame(GameModel gModel)
         {
             var response = await client.PutAsJsonAsync<GameModel>("http://localhost:31686/api/Game", gModel);
             return await response.Content.ReadFromJsonAsync<GameModel>();
         }
 
-        public async Task deleteGameModel(int id)
+        public async Task deleteGame(int id)
         {
             var response = await client.DeleteAsync($"http://localhost:31686/api/Game/{id}");
         }
