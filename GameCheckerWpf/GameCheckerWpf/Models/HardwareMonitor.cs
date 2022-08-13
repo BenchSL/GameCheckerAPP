@@ -115,7 +115,7 @@ namespace GameCheckerWpf.Models
             }
         }
 
-        PerformanceCounter myAppCPU = new PerformanceCounter("Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
+        PerformanceCounter myAppCPU = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
         PerformanceCounter MyMem = new PerformanceCounter("Memory", "% Committed Bytes In Use");
 
         public HardwareMonitor()
@@ -147,7 +147,7 @@ namespace GameCheckerWpf.Models
             CountCpuInt = (int)myAppCPU.NextValue();
             CountCpu = $"{CountCpuInt.ToString()}%";
 
-            CountMemoryInt = (int)MyMem.NextValue();
+            CountMemoryInt = (int)MyMem.NextValue() - 6;
             CountMemory = $"{CountMemoryInt.ToString()}%";
             //double infomem = getRandomAccessMemoryInfo();
             //double test = infomem / 100;

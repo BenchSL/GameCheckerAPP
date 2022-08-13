@@ -1,8 +1,11 @@
-﻿using System;
+﻿using GameCheckerWpf.Services;
+using GameCheckerWpf.LoginValidation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace GameCheckerWpf.Models
 {
@@ -12,6 +15,9 @@ namespace GameCheckerWpf.Models
         private string username;
         private string password;
 
+        private UserService userService;
+        private readonly HttpClient httpClient = new HttpClient();
+        private bool isValid;
         public string UserName
         {
             get { return username; }
@@ -32,12 +38,20 @@ namespace GameCheckerWpf.Models
             }
         }
 
-        public UserModel(string UserName, string Password)
+        public UserModel() 
         {
-            this.UserName = UserName;
-            this.Password = Password;
+            userService = new UserService(httpClient);
+            LoginUser();
         }
-        public UserModel() { }
+
+        public async void LoginUser()
+        {
+            UserModel userModel = new UserModel();
+            userModel.UserName = UserName;
+            userModel.Password = Password;
+
+            UserSession.isValid = (await userService.loginUser(userModel));
+        }
 
         public override string ToString()
         {

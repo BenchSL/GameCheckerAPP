@@ -26,5 +26,10 @@ namespace GameCheckerWpf.Views
             InitializeComponent();
             DataContext = new UserModel();
         }
+
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
