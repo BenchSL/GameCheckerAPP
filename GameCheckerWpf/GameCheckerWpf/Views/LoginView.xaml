@@ -21,11 +21,12 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Password" FontFamily="Times New Roman" Foreground="White" FontSize="35" Margin="0,0,30,0"/>
-            <PasswordBox x:Name="txt_pass" Width="450" Height="50" FontFamily="Times New Roman" Margin="0,0,100,0" FontSize="40"/>
+            <TextBox x:Name="txt_passWord" Text="{Binding Password, Mode=TwoWay}"  Width="450" Height="50" FontFamily="Times New Roman" Margin="0,0,100,0" FontSize="40"/>
+            <!--<PasswordBox x:Name="txt_pass" Width="450" Height="50" FontFamily="Times New Roman" Margin="0,0,100,0" FontSize="40"/>-->
         </StackPanel>
 
         <StackPanel Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center" Orientation="Vertical">
-            <Button x:Name="btn_login" Content="Login" Click="btn_login_Click" Margin="27,0,0,40" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Width="180" Height="60">
+            <Button x:Name="btn_login" Content="Login" Command="{Binding LoginCommand}" Margin="27,0,0,40" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Width="180" Height="60">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

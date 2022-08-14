@@ -1,4 +1,5 @@
 ﻿using GameCheckerWpf.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace GameCheckerWpf.Services
             this.client = client;
         }
 
-        public async Task<bool> loginUser(UserModel userM)
+        public async Task<UserModel> loginUser(string Username, string Password)
         {
-            return await client.GetFromJsonAsync<bool>($"http://localhost:31686/api/User/{userM}");
+            return await client.GetFromJsonAsync<UserModel>($"http://localhost:31686/api/User/{Username}/{Password}");
         }
 
         public async Task<IEnumerable<UserModel>> getUsers()

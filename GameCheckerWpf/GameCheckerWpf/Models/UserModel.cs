@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Windows.Input;
+using GameCheckerWpf.Commands;
 
 namespace GameCheckerWpf.Models
 {
@@ -15,9 +17,6 @@ namespace GameCheckerWpf.Models
         private string username;
         private string password;
 
-        private UserService userService;
-        private readonly HttpClient httpClient = new HttpClient();
-        private bool isValid;
         public string UserName
         {
             get { return username; }
@@ -37,20 +36,11 @@ namespace GameCheckerWpf.Models
                 OnPropertyChanged(nameof(Password));
             }
         }
+        public ICommand LoginCommand { get; }
 
         public UserModel() 
         {
-            userService = new UserService(httpClient);
-            LoginUser();
-        }
-
-        public async void LoginUser()
-        {
-            UserModel userModel = new UserModel();
-            userModel.UserName = UserName;
-            userModel.Password = Password;
-
-            UserSession.isValid = (await userService.loginUser(userModel));
+            LoginCommand = new LoginUserCommand(this);
         }
 
         public override string ToString()

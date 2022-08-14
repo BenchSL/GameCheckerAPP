@@ -16,12 +16,14 @@ namespace GameCheckerAPI.Repos
             this.gameDbContext = gameDbContext;
         }
 
-        public async Task<bool> loginUser(UserModel user)
+        public async Task<UserModel> loginUser(string Username, string Password)
         {
-            return await Task.Run(() =>
+            var result = await gameDbContext.userModel.FirstOrDefaultAsync(x => Username == x.Username && Password == x.Password);
+            if (result != null)
             {
-                return loginUserHelp(user);
-            });
+                return result;
+            } else
+                return null;
         }
 
 
@@ -66,20 +68,6 @@ namespace GameCheckerAPI.Repos
             gameDbContext.SaveChanges();
 
             return um;
-        }
-
-        private bool loginUserHelp(UserModel user)
-        {
-            foreach (var i in gameDbContext.userModel)
-            {
-                if (user.Username == i.Username && user.Password == i.Password)
-                {
-                    return true;
-                }
-                else
-                    return false;
-            }
-            return false;
         }
     }
 }
