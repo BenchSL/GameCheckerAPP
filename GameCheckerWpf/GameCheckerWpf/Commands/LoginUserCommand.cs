@@ -1,4 +1,5 @@
-﻿using GameCheckerWpf.LoginValidation;
+﻿using GameCheckerWpf.LoginAutenticationWindows;
+using GameCheckerWpf.LoginValidation;
 using GameCheckerWpf.Models;
 using GameCheckerWpf.Services;
 using System;
@@ -31,11 +32,23 @@ namespace GameCheckerWpf.Commands
             UserModel helpModel = new UserModel();
             helpModel.UserName = userModel.UserName;
             helpModel.Password = userModel.Password;
-            UserModel comparableObj = (await userService.loginUser(userModel.UserName, userModel.Password));
+            UserModel comparableObj = new UserModel();
+            try
+            {
+                comparableObj = (await userService.loginUser(userModel.UserName, userModel.Password));
+            }
+
+            catch
+            {
+                LoginDeniedWindow loginDeniedWindow = new LoginDeniedWindow(new Exceptions.UserNotFoundException("Autentication failed. Do you have an account already?"));
+                loginDeniedWindow.ShowDialog();
+                
+            }
 
             if (helpModel.UserName == comparableObj.UserName && helpModel.Password == comparableObj.Password)
             {
                 UserSession.isValid = true;
+                UserSession.loggedUser = comparableObj;
             }
             else
                 UserSession.isValid = false;

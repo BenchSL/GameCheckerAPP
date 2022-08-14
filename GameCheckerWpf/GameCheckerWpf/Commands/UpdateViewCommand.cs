@@ -26,7 +26,6 @@ namespace GameCheckerWpf.Commands
 
         public void Execute(object parameter)
         {
-            Console.WriteLine("test");
             if (parameter.ToString() == "Performance")
             {
                 viewModel.SelectedViewModel = new PerformanceViewModel();
@@ -45,6 +44,11 @@ namespace GameCheckerWpf.Commands
             else if (parameter.ToString() == "Hardware")
             {
                 viewModel.SelectedViewModel = new HardwareMonitorViewModel();
+            }
+
+            else if (parameter.ToString() == "Proceed")
+            {
+                viewModel.SelectedViewModel = new MainViewModel();
             }
         }
     }
