@@ -45,11 +45,6 @@ namespace GameCheckerWpf.Commands
             {
                 viewModel.SelectedViewModel = new HardwareMonitorViewModel();
             }
-
-            else if (parameter.ToString() == "Proceed")
-            {
-                viewModel.SelectedViewModel = new MainViewModel();
-            }
         }
     }
 }

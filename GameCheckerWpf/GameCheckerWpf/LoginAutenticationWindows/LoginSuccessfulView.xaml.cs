@@ -1,6 +1,4 @@
-﻿using GameCheckerWpf.Commands;
-using GameCheckerWpf.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GameCheckerWpf.Views
+namespace GameCheckerWpf.LoginAutenticationWindows
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for LoginSuccessfulView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class LoginSuccessfulView : UserControl
     {
-        public LoginView()
+        public LoginSuccessfulView()
         {
             InitializeComponent();
-            DataContext = new UserModel();
-        }
-
-        private void btn_login_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }

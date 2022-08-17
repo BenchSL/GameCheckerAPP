@@ -2,6 +2,7 @@
 using GameCheckerWpf.LoginValidation;
 using GameCheckerWpf.Models;
 using GameCheckerWpf.Services;
+using GameCheckerWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +41,8 @@ namespace GameCheckerWpf.Commands
 
             catch
             {
-                LoginDeniedWindow loginDeniedWindow = new LoginDeniedWindow(new Exceptions.UserNotFoundException("Autentication failed. Do you have an account already?"));
-                loginDeniedWindow.ShowDialog();
-                
+                //LoginDeniedWindow loginDeniedWindow = new LoginDeniedWindow(new Exceptions.UserNotFoundException("Autentication failed. Do you have an account already?"));
+                //loginDeniedWindow.ShowDialog();
             }
 
             if (helpModel.UserName == comparableObj.UserName && helpModel.Password == comparableObj.Password)

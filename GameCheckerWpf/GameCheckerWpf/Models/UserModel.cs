@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Windows.Input;
 using GameCheckerWpf.Commands;
+using GameCheckerWpf.ViewModels;
 
 namespace GameCheckerWpf.Models
 {

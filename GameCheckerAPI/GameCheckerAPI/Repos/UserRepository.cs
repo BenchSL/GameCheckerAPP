@@ -16,15 +16,15 @@ namespace GameCheckerAPI.Repos
             this.gameDbContext = gameDbContext;
         }
 
-        public async Task<UserModel> loginUser(string Username, string Password)
-        {
-            var result = await gameDbContext.userModel.FirstOrDefaultAsync(x => Username == x.Username && Password == x.Password);
-            if (result != null)
-            {
-                return result;
-            } else
-                return null;
-        }
+        //public async Task<UserModel> loginUser(string Username, string Password)
+        //{
+        //    var result = await gameDbContext.userModel.FirstOrDefaultAsync(x => Username == x.Username && Password == x.Password);
+        //    if (result != null)
+        //    {
+        //        return result;
+        //    } else
+        //        return null;
+        //}
 
 
         public async Task<UserModel> AddUser(UserModel user)

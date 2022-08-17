@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GameCheckerWpf"
              xmlns:views="clr-namespace:GameCheckerWpf.Views"
+             xmlns:loginviews="clr-namespace:GameCheckerWpf.LoginAutenticationWindows"
              xmlns:viewmodels="clr-namespace:GameCheckerWpf.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -17,6 +18,12 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:HardwareMonitorViewModel}">
             <views:HardwareMonitor />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:LoginDeniedViewModel}">
+            <loginviews:LoginDeniedView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:LoginSuccessViewModel}">
+            <loginviews:LoginSuccessfulView />
         </DataTemplate>
     </Application.Resources>
 </Application>
