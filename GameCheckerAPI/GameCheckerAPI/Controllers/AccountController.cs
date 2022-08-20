@@ -28,7 +28,7 @@ namespace GameCheckerAPI.Controllers
             return await accountRepository.DoesUsernameExist(userName);
         }
 
-        [HttpGet("userName")]
+        [HttpGet("{userName}")]
         public async Task<ActionResult<Account>> GetByUserName(string userName)
         {
             var result = await accountRepository.GetByUserName(userName);
