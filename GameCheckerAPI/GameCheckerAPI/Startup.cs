@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GameCheckerAPI.Repos;
+using GameCheckerAPI.AutenticationServices;
 
 namespace GameCheckerAPI
 {
@@ -33,6 +34,8 @@ namespace GameCheckerAPI
 
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAutenticationService, AutenticationService>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
