@@ -1,6 +1,4 @@
-﻿using GameCheckerWpf.Commands;
-using GameCheckerWpf.Models;
-using GameCheckerWpf.ViewModels;
+﻿using GameCheckerWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +17,14 @@ using System.Windows.Shapes;
 namespace GameCheckerWpf.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for UserLoggedInView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class UserLoggedInView : UserControl
     {
-        public LoginView()
+        public UserLoggedInView()
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-        }
-
-        private void btn_login_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }

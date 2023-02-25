@@ -23,6 +23,7 @@ namespace GameCheckerWpf
         string gameTitle = "";
         int index;
 
+
         private BitmapImage _image;
         public BitmapImage MyImage
         {

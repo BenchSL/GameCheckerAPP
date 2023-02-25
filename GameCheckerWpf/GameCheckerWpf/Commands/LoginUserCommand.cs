@@ -3,6 +3,7 @@ using GameCheckerWpf.LoginValidation;
 using GameCheckerWpf.Models;
 using GameCheckerWpf.Services;
 using GameCheckerWpf.ViewModels;
+using GameCheckerWpf.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,14 @@ namespace GameCheckerWpf.Commands
 {
     public class LoginUserCommand : MethodCommandBase
     {
-        private UserModel userModel;
+        //private UserModel userModel;
         private readonly HttpClient httpClient = new HttpClient();
-        private UserService userService;
-        public LoginUserCommand(UserModel userModel)
+        private readonly UserService userService;
+        MainWindowViewModel viewModel;
+        public LoginUserCommand(MainWindowViewModel viewModel)//UserModel userModel, MainWindowViewModel mainWindow
         {
-            this.userModel = userModel;
+            //this.userModel = userModel;
+            this.viewModel = viewModel;
             userService = new UserService(httpClient);
         }
 
@@ -31,18 +34,22 @@ namespace GameCheckerWpf.Commands
         private async void isValid()
         {
             UserModel helpModel = new UserModel();
-            helpModel.UserName = userModel.UserName;
-            helpModel.Password = userModel.Password;
+            helpModel.UserName = viewModel.UserName;
+            helpModel.Password = viewModel.Password;
             UserModel comparableObj = new UserModel();
+            
             try
-            {
-                comparableObj = (await userService.loginUser(userModel.UserName, userModel.Password));
+            { 
+                comparableObj = (await userService.loginUser(viewModel.UserName, viewModel.Password));
+                LoginSuccessfulWindow loginSuccessfulWindow = new LoginSuccessfulWindow(new UserFoundMessage($"Welcome back {viewModel.UserName}, click next to proceed to our application!"));
+                loginSuccessfulWindow.ShowDialog();
             }
 
             catch
             {
-                //LoginDeniedWindow loginDeniedWindow = new LoginDeniedWindow(new Exceptions.UserNotFoundException("Autentication failed. Do you have an account already?"));
-                //loginDeniedWindow.ShowDialog();
+                viewModel.SelectedViewModel = new HardwareMonitorViewModel();
+                LoginDeniedWindow loginDeniedWindow = new LoginDeniedWindow(new UserNotFoundException("Autentication failed. Do you have an account already?"));
+                loginDeniedWindow.ShowDialog();
             }
 
             if (helpModel.UserName == comparableObj.UserName && helpModel.Password == comparableObj.Password)

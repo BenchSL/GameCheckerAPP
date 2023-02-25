@@ -10,29 +10,47 @@ namespace GameCheckerWpf.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
+        private string username;
+        private string password;
+
+        public string UserName
+        {
+            get { return username; }
+            set
+            {
+                username = value;
+                OnPropertyChanged(nameof(UserName));
+            }
+        }
+
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public ICommand UpdateViewCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
+
         private BaseViewModel _selectedViewModel = new MainViewModel();
         public BaseViewModel SelectedViewModel
         {
             get { return _selectedViewModel; }
-            set 
+            set
             {
                 _selectedViewModel = value;
                 OnPropertyChanged(nameof(SelectedViewModel));
             }
         }
-
-        public ICommand UpdateViewCommand { get; set; }
-
         public MainWindowViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
-        }     
-
-        //public ICommand UpdateViewCommand { get; set; }
-        //public MainWindowViewModel()
-        //{
-        //    UpdateViewCommand = new UpdateViewCommand(this);
-        //}
+            LoginCommand = new LoginUserCommand(this);
+        }
 
     }
 }

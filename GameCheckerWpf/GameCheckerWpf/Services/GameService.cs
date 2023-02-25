@@ -12,7 +12,7 @@ namespace GameCheckerWpf.Services
     public class GameService
     {
         private readonly HttpClient client;
-
+         
         public GameService(HttpClient client)
         {
             this.client = client;

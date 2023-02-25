@@ -7,8 +7,11 @@
              xmlns:viewmodels="clr-namespace:GameCheckerWpf.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+        <DataTemplate DataType="{x:Type viewmodels:MainWindowViewModel}">
             <views:LoginView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:UserLoggedInViewModel}">
+            <views:UserLoggedInView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:PerformanceViewModel}">
             <views:PerformanceView />
@@ -18,12 +21,6 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:HardwareMonitorViewModel}">
             <views:HardwareMonitor />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:LoginDeniedViewModel}">
-            <loginviews:LoginDeniedView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:LoginSuccessViewModel}">
-            <loginviews:LoginSuccessfulView />
         </DataTemplate>
     </Application.Resources>
 </Application>

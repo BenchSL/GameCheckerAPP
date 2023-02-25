@@ -36,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GameCheckerAPI\GameCheckerAPI\GameCheckerAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\1.jpg" />
     <Resource Include="Images\2.jpg" />
     <Resource Include="Images\CPUlogo.png" />

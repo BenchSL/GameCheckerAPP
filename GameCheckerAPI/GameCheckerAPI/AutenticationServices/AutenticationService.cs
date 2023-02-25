@@ -38,7 +38,7 @@ namespace GameCheckerAPI.AutenticationServices
                 IPasswordHasher hasher = new PasswordHasher();
                 string hashedPassword = hasher.HashPassword(password);
 
-                UserModel newUser = new UserModel(userName, hashedPassword, email);
+                UserModel newUser = new UserModel(userName, password, email);
                 Account newAccount = new Account(newUser);
 
                 var resultAcc = await db.Account.AddAsync(newAccount);

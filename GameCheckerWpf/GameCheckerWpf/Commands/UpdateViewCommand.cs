@@ -1,4 +1,6 @@
-﻿using GameCheckerWpf.ViewModels;
+﻿using GameCheckerAPI.Models;
+using GameCheckerWpf.LoginValidation;
+using GameCheckerWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +35,14 @@ namespace GameCheckerWpf.Commands
 
             else if (parameter.ToString() == "Login")
             {
-                viewModel.SelectedViewModel = new LoginViewModel();
+                if (UserSession.isValid)
+                {
+                    viewModel.SelectedViewModel = new UserLoggedInViewModel();
+                }
+                else
+                {
+                    viewModel.SelectedViewModel = new MainWindowViewModel();
+                }
             }
 
             else if (parameter.ToString() == "Home")

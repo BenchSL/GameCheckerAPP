@@ -41,7 +41,13 @@ namespace GameCheckerWpf.Models
 
         public UserModel() 
         {
-            LoginCommand = new LoginUserCommand(this);
+            //LoginCommand = new LoginUserCommand(this);                                                        
+        }
+
+        public UserModel(string username, string password)
+        {
+            this.UserName = username;
+            this.Password = password;
         }
 
         public override string ToString()
