@@ -34,7 +34,7 @@
             <TextBox x:Name="txt_email" Text="{Binding Email, Mode=TwoWay}"  Width="450" Height="50" FontFamily="Times New Roman" Margin="0,0,50,0" FontSize="40"/>
         </StackPanel>
         <StackPanel Grid.Row="4" HorizontalAlignment="center" VerticalAlignment="Center" Orientation="Vertical">
-            <Button x:Name="btn_login" Content="Register" Command="{Binding RegisterCommand}" Margin="27,0,0,30" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Width="180" Height="60">
+            <Button x:Name="btn_register" Content="Register" Command="{Binding RegisterCommand}" Margin="27,0,0,30" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Width="180" Height="60" Click="btn_register_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}"> 
                         <Setter Property="CornerRadius" Value="10"/>

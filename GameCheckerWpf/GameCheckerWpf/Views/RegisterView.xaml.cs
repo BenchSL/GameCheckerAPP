@@ -26,5 +26,13 @@ namespace GameCheckerWpf.Views
             InitializeComponent();
             this.DataContext = new MainWindowViewModel();
         }
+
+        private void btn_register_Click(object sender, RoutedEventArgs e)
+        {
+            txt_userName.Clear();
+            txt_passWord.Clear();
+            txt_email.Clear();
+            txt_confirmPassWord.Clear();
+        }
     }
 }
