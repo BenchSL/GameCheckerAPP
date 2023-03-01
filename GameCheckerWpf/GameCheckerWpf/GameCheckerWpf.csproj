@@ -19,11 +19,15 @@
     <None Remove="Images\JoystickRed.png" />
     <None Remove="Images\motherboardLogo.png" />
     <None Remove="Images\RAMlogo.png" />
+    <None Remove="Images\user-pngrepo-com.png" />
     <None Remove="Images\windowsLogo.png" />
     <None Remove="Images\YellowJoystick.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\user-pngrepo-com.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\windowsLogo.png" />
   </ItemGroup>
 

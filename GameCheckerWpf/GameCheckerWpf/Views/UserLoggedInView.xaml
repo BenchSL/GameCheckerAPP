@@ -11,8 +11,45 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123*" />
+            <ColumnDefinition Width="77*" />
+        </Grid.ColumnDefinitions>
+        <Image Width="100" 
+                   Height="100" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Source="C:\Users\timzu\OneDrive\Desktop\GameChecker\GameCheckerWpf\GameCheckerWpf\Images\user-pngrepo-com.png"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0" Height="48">
+            <Label Content="Name:" FontSize="30" Foreground="WhiteSmoke" HorizontalAlignment="Left" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis"></Label>
+            <TextBlock Text="{Binding UserName}"
+                       x:Name="userName"
+                       Margin="20,5,0,0"
+                       TextWrapping="Wrap" 
+                       FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" 
+                       Foreground="Black" 
+                       FontSize="30"/>
+        </StackPanel>
 
-        <TextBlock Grid.Row="1" FontFamily="Times New Roman" FontSize="25" TextAlignment="Center"></TextBlock>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0" Height="48">
+            <Label Content="Email:" FontSize="30" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke"></Label>
+            <TextBlock Text="{Binding Email}"
+                       x:Name="email"
+                       Margin="20,5,0,0"
+                       TextWrapping="Wrap" 
+                       FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" 
+                       Foreground="Black" 
+                       FontSize="30"/>
+        </StackPanel>
+
+        <Button x:Name="btn_logout" Content="Logout" Command="{Binding LogoutCommand}" Margin="128,32,100,31" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Width="200">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using GameCheckerWpf.ViewModels;
+﻿using GameCheckerWpf.Models;
+using GameCheckerWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace GameCheckerWpf.Views
         public UserLoggedInView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new LoggedUser();
         }
     }
 }

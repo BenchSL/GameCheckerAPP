@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameCheckerWpf.LoginValidation
 {
-    public class UserSession
+    public static class UserSession
     {
         public static bool isValid { get; set; }
         public static UserModel loggedUser { get; set; }
