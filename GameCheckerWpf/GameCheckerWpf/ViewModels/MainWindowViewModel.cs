@@ -12,7 +12,8 @@ namespace GameCheckerWpf.ViewModels
     {
         private string username;
         private string password;
-
+        private string email;
+        private string confirmPassword;
         public string UserName
         {
             get { return username; }
@@ -33,8 +34,29 @@ namespace GameCheckerWpf.ViewModels
             }
         }
 
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                email = value;
+                OnPropertyChanged(nameof(Email));
+            }
+        }
+
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                OnPropertyChanged(nameof(ConfirmPassword));
+            }
+        }
+
         public ICommand UpdateViewCommand { get; set; }
         public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
 
         private BaseViewModel _selectedViewModel = new MainViewModel();
         public BaseViewModel SelectedViewModel
@@ -50,6 +72,7 @@ namespace GameCheckerWpf.ViewModels
         {
             UpdateViewCommand = new UpdateViewCommand(this);
             LoginCommand = new LoginUserCommand(this);
+            RegisterCommand = new RegisterUserCommand(this);
         }
 
     }

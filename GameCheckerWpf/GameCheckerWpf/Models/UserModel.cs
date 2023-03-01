@@ -17,6 +17,7 @@ namespace GameCheckerWpf.Models
         private int id;
         private string username;
         private string password;
+        private string email;
 
         public string UserName
         {
@@ -37,7 +38,19 @@ namespace GameCheckerWpf.Models
                 OnPropertyChanged(nameof(Password));
             }
         }
+
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                email = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
         public ICommand LoginCommand { get; }
+
+        public ICommand RegisterCommand { get; }
 
         public UserModel() 
         {
@@ -50,9 +63,16 @@ namespace GameCheckerWpf.Models
             this.Password = password;
         }
 
+        public UserModel(string username, string password, string email)
+        {
+            this.UserName = username;
+            this.Password = password;
+            this.Email = email;
+        }
+
         public override string ToString()
         {
-            return $"id: {id} | Username: {UserName} | Password: {Password}";
+            return $"id: {id} | Username: {UserName} | Password: {Password} | Email: {Email}";
         }
     }
 }

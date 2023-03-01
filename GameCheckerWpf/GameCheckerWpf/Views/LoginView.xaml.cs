@@ -33,5 +33,15 @@ namespace GameCheckerWpf.Views
         {
            
         }
+
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            label_register.Foreground = Brushes.Red;
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            label_register.Foreground = Brushes.White;
+        }
     }
 }

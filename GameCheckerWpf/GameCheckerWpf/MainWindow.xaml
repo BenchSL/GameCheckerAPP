@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <ContentControl Content="{Binding SelectedViewModel}" Grid.Row="1" Grid.ColumnSpan="2" Panel.ZIndex="1">
-            
+
         </ContentControl>
         <Grid Background="#0F0F2D" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -249,5 +249,6 @@
                 <Rectangle Grid.Row="8" Grid.Column="5" HorizontalAlignment="Center" Fill="Brown" VerticalAlignment="Center" RadiusX="30" RadiusY="30" Height="24" Width="31"/>
             </Grid>
         </Grid>
+        <Button x:Name="registerBtn" Height="20" Margin="300,445,316,10" Opacity="0" CommandParameter="Register" Command="{Binding UpdateViewCommand}" Panel.ZIndex="1" Grid.ColumnSpan="2" Grid.Row="1" RenderTransformOrigin="0.5,0.533"/>
     </Grid>
 </Window>

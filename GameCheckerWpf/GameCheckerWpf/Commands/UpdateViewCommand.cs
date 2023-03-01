@@ -53,6 +53,11 @@ namespace GameCheckerWpf.Commands
             else if (parameter.ToString() == "Hardware")
             {
                 viewModel.SelectedViewModel = new HardwareMonitorViewModel();
+            } 
+
+            else if (parameter.ToString() == "Register")
+            {
+                viewModel.SelectedViewModel = new RegisterViewModel();
             }
         }
     }
