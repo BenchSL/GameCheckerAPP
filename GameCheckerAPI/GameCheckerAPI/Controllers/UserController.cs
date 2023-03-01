@@ -23,6 +23,12 @@ namespace GameCheckerAPI.Controllers
             return await userRepository.loginUser(Username, Password);
         }
 
+        [HttpGet("{username}/{password}/{email}")]
+        public async Task<ActionResult<UserModel>> registerUser(string username, string password, string email)
+        {
+            return await userRepository.registerUser(username, password, email);
+        }
+
         [HttpGet]
         public async Task<ActionResult> GetUsers()
         {

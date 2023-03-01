@@ -16,6 +16,23 @@ namespace GameCheckerAPI.Repos
             this.gameDbContext = gameDbContext;
         }
 
+        public async Task<UserModel> registerUser(string userName, string password, string email)
+        {
+            UserModel registerUser = new UserModel();
+            registerUser.Username = userName;
+            registerUser.Password = password;
+            registerUser.Email = email;
+            if (!findExistingUser(registerUser.Username))
+            {
+                var result = await gameDbContext.userModel.AddAsync(registerUser); //user not found, saving new user in DB
+                await gameDbContext.SaveChangesAsync();
+                return result.Entity;
+            } else
+            {
+                return null; //user found, returning null
+            }
+        }
+
         public async Task<UserModel> loginUser(string Username, string Password)
         {
             var result = await gameDbContext.userModel.FirstOrDefaultAsync(x => Username == x.Username && Password == x.Password);
@@ -69,6 +86,20 @@ namespace GameCheckerAPI.Repos
             gameDbContext.SaveChanges();
 
             return um;
+        }
+
+        private bool findExistingUser(string username)
+        {
+            bool result = false;
+            var userFound = gameDbContext.userModel.FirstOrDefault(x => x.Username == username);
+            if (userFound != null)
+            {
+                result = true;
+            } else
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }

@@ -24,6 +24,11 @@ namespace GameCheckerWpf.Services
             return await client.GetFromJsonAsync<UserModel>($"http://localhost:31686/api/User/{Username}/{Password}");
         }
 
+        public async Task<UserModel> registerUser(string userName, string password, string email)
+        {
+            return await client.GetFromJsonAsync<UserModel>($"http://localhost:31686/api/User/{userName}/{password}/{email}");
+        }
+
         public async Task<IEnumerable<UserModel>> getUsers()
         {
             return await client.GetFromJsonAsync<List<UserModel>>("http://localhost:31686/api/User");
