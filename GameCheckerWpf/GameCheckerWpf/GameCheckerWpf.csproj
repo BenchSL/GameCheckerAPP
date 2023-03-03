@@ -17,6 +17,7 @@
     <None Remove="Images\HardDisc.png" />
     <None Remove="Images\icons8-joystick-60.png" />
     <None Remove="Images\JoystickRed.png" />
+    <None Remove="Images\Logo-gamechecker.png" />
     <None Remove="Images\motherboardLogo.png" />
     <None Remove="Images\RAMlogo.png" />
     <None Remove="Images\user-pngrepo-com.png" />
@@ -25,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Logo-gamechecker.png" />
     <Resource Include="Images\user-pngrepo-com.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
@@ -32,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="IronPdf" Version="2023.2.4" />
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Management" Version="5.0.0" />

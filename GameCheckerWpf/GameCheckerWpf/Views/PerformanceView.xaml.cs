@@ -17,6 +17,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
+using System.ComponentModel;
+using System.IO;
+using System.Drawing;
+using IronPdf;
+using Microsoft.Win32;
+using GameCheckerWpf.PdfGenerator;
 
 namespace GameCheckerWpf.Views
 {
@@ -27,13 +33,17 @@ namespace GameCheckerWpf.Views
     {
         private readonly HttpClient client;
         private GameService gameService;
+        private ComputerHardware computerHardware;
+        private PdfDocumentGenerator pdfGenerator;
 
         public PerformanceView()
         {
             InitializeComponent();
             this.DataContext = new ComputerHardware();
+            computerHardware = new ComputerHardware();
             client = new HttpClient();
             gameService = new GameService(client);
+            pdfGenerator = new PdfDocumentGenerator();
         }
 
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -44,6 +54,11 @@ namespace GameCheckerWpf.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btn_exportPdf_Click(object sender, RoutedEventArgs e)
+        {
+            pdfGenerator.savePDF();
         }
     }
 }

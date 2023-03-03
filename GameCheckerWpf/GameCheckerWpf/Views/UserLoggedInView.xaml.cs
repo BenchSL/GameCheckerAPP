@@ -1,4 +1,5 @@
-﻿using GameCheckerWpf.Models;
+﻿using GameCheckerWpf.LoginValidation;
+using GameCheckerWpf.Models;
 using GameCheckerWpf.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,19 @@ namespace GameCheckerWpf.Views
         {
             InitializeComponent();
             DataContext = new LoggedUser();
+        }
+
+        private void btn_logout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("LOGGING OUT USER");
+            logoutUser();
+            this.Content = new MainViewModel();
+        }
+
+        private void logoutUser()
+        {
+            UserSession.isValid = false;
+            UserSession.loggedUser = new UserModel();
         }
     }
 }

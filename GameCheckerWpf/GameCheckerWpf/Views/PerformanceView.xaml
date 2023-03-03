@@ -29,6 +29,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Text="Specifications" Grid.Row="0" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="40"></TextBlock>
+            <Button x:Name="btn_exportPdf" Content="Export pdf" Margin="283,18,18,37" Background="Orange" Foreground="White" FontFamily="TimesNewRoman" FontSize="10" FontWeight="Bold" Width="70" Height="20" Click="btn_exportPdf_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
             <TextBlock Text="{Binding OperatingSystem}"
                        x:Name="osTxt"

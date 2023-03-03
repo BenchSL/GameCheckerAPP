@@ -71,7 +71,7 @@
             </Button>
             <Button x:Name="btn_monitor" 
                     Content="Monitor hardware" 
-                    Margin="7,0,0,0" 
+                    Margin="20,0,0,0" 
                     BorderThickness="0" 
                     Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                     Command="{Binding UpdateViewCommand}" 
@@ -109,7 +109,7 @@
             </Button>
             <Button x:Name="btn_login"
                     Content="Login" 
-                    Margin="7,0,0,0" 
+                    Margin="7,0,-170,0" 
                     BorderThickness="0"
                     Style="{StaticResource 
                 {x:Static ToolBar.ButtonStyleKey}}" 

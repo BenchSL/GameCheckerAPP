@@ -44,7 +44,7 @@
                        FontSize="30"/>
         </StackPanel>
 
-        <Button x:Name="btn_logout" Content="Logout" Command="{Binding LogoutCommand}" Margin="128,32,100,31" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Width="200">
+        <Button x:Name="btn_logout" Content="Logout" Margin="128,32,100,31" Background="Orange" Foreground="White" FontFamily="Times NewRoman" FontSize="30" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Width="200" Click="btn_logout_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
