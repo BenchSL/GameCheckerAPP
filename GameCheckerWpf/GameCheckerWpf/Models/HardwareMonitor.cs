@@ -1,5 +1,4 @@
-﻿using LiveCharts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -16,10 +15,6 @@ namespace GameCheckerWpf.Models
         private string countMemory;
         int countCpuInt;
         int countMemoryInt;
-        ChartValues<double> realTimeCountMemoryUsage = new ChartValues<double>();
-        ChartValues<double> realTimeCountCPUUsage = new ChartValues<double>();
-        ChartValues<string> realTimeCountMemoryProcentage = new ChartValues<string>();
-        ChartValues<string> realTimeCountCPUProcentage = new ChartValues<string>();
 
         public string CountCpu
         {
@@ -70,48 +65,6 @@ namespace GameCheckerWpf.Models
             {
                 countMemoryInt = value;
                 OnPropertyChanged(nameof(CountMemoryInt));
-            }
-        }
-        public ChartValues<double> RealTimeCountMemoryUsage
-        {
-            get { return realTimeCountMemoryUsage; }
-            set
-            {
-                realTimeCountMemoryUsage = value;
-                OnPropertyChanged(nameof(RealTimeCountMemoryUsage));
-            }
-        }
-        public ChartValues<double> RealTimeCountCpuUsage
-        {
-            get { return realTimeCountCPUUsage; }
-            set
-            {
-                realTimeCountCPUUsage = value;
-                OnPropertyChanged(nameof(RealTimeCountCpuUsage));
-            }
-        }
-        public ChartValues<string> RealTimeCountMemoryProcentage
-        {
-            get
-            {
-                return realTimeCountMemoryProcentage;
-            }
-            set
-            {
-                realTimeCountMemoryProcentage = value;
-                OnPropertyChanged("RealTimeCountMemoryProcentage");
-            }
-        }
-        public ChartValues<string> RealTimeCountCPUProcentage
-        {
-            get
-            {
-                return realTimeCountCPUProcentage;
-            }
-            set
-            {
-                realTimeCountCPUProcentage = value;
-                OnPropertyChanged("RealTimeCountCPUProcentage");
             }
         }
 

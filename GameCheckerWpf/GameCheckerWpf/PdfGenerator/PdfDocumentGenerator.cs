@@ -65,7 +65,7 @@ namespace GameCheckerWpf.PdfGenerator
                     "<div style=width:600px;display:flex;align-items:center;margin-top:15px>" + "<div>" + imgCpu + "</div>" + "<h2>" + cpu + "</h2>" + "</div>" +
                     "<div style=width:600px;display:flex;align-items:center;margin-top:15px>" + "<div>" + imgGpu + "</div>" + "<h2>" + gpu + "</h2>" + "</div>" +
                     "</div>");
-                    //"<center><h5 style=position:absolute;bottom:10px;border:3px solid #8AC007;>" "</h5></center>");
+            //"<center><h5 style=position:absolute;bottom:10px;border:3px solid #8AC007;>" "</h5></center>")
             return sb.ToString();
         }
     }

@@ -35,7 +35,6 @@
 
   <ItemGroup>
     <PackageReference Include="IronPdf" Version="2023.2.4" />
-    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Management" Version="5.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
