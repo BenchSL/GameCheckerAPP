@@ -10,6 +10,7 @@ namespace GameCheckerAPI.Database
         public DbSet<Account> Account { get; set; }
         public DbSet<Specification> Specification { get; set; }
         public DbSet<Specifications2Game> Specifications2Games { get; set; }
+        public DbSet<ComputerHardware> computerHardware { get; set; }
         public GameContext(DbContextOptions<GameContext> options)
         : base(options)
         {

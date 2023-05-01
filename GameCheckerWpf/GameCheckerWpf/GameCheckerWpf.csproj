@@ -36,6 +36,7 @@
   <ItemGroup>
     <PackageReference Include="IronPdf" Version="2023.2.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.1.2" />
     <PackageReference Include="System.Management" Version="5.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="XamlRadialProgressBar" Version="1.0.3" />

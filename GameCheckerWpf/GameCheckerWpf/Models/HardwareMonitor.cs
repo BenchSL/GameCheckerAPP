@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OxyPlot;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,8 +14,10 @@ namespace GameCheckerWpf.Models
     {
         private string countCpu;
         private string countMemory;
-        int countCpuInt;
-        int countMemoryInt;
+        private int countCpuInt;
+        private int countMemoryInt;
+        private string title;
+        public IList<DataPoint> Points { get; private set; }
 
         public string CountCpu
         {
@@ -68,6 +71,16 @@ namespace GameCheckerWpf.Models
             }
         }
 
+        public string Title
+        {
+            get { return title; }
+            set 
+            {
+                title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
         PerformanceCounter myAppCPU = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
         PerformanceCounter MyMem = new PerformanceCounter("Memory", "% Committed Bytes In Use");
 
@@ -75,6 +88,18 @@ namespace GameCheckerWpf.Models
         {
             timer_start1();
             timer_start2();
+
+            this.Title = "Example 2";
+
+            this.Points = new List<DataPoint>
+            {
+                new DataPoint(0, 4),
+                new DataPoint(10, 13),
+                new DataPoint(20, 15),
+                new DataPoint(30, 16),
+                new DataPoint(40, 12),
+                new DataPoint(50, 12)
+            };
         }
 
         private void timer_start1()

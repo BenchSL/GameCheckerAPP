@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:xrpb="http://XamlRadialProgressBar/DotNet"
+             xmlns:oxy="http://oxyplot.org/wpf"
              xmlns:local="clr-namespace:GameCheckerWpf.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -38,5 +39,10 @@
                 Foreground="{StaticResource ProgressBarRadialGradientBrush}"/>
         <Label FontSize="30" Content="{Binding CountMemory}" Height="50" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="White" RenderTransformOrigin="0.488,0.514" Margin="369,0,0,0"/>
 
+        <oxy:Plot Title="{Binding Title}">
+            <oxy:PlotView.>
+                <oxy:LineSeries ItemsSource="{Binding Points}"/>
+            </oxy:<Unknown>>
+        </oxy:<Unknown>>
     </Grid>
 </UserControl>

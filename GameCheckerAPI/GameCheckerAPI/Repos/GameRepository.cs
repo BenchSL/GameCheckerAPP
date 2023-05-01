@@ -45,7 +45,6 @@ namespace GameCheckerAPI.Repos
         public async Task<GameModel> UpdateGameModel(GameModel gModel)
         {
             var result = await gameDbContext.gameModel.FirstOrDefaultAsync(x => x.Id == gModel.Id);
-            gameDbContext.gameModel.Remove(result);
             GameModel gm = new GameModel()
             {
                 Id = result.Id,
@@ -57,6 +56,7 @@ namespace GameCheckerAPI.Repos
             };
 
             await gameDbContext.gameModel.AddAsync(gm);
+            gameDbContext.gameModel.Remove(result);
             await gameDbContext.SaveChangesAsync();
 
             return gm;
