@@ -39,10 +39,5 @@
                 Foreground="{StaticResource ProgressBarRadialGradientBrush}"/>
         <Label FontSize="30" Content="{Binding CountMemory}" Height="50" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="White" RenderTransformOrigin="0.488,0.514" Margin="369,0,0,0"/>
 
-        <oxy:Plot Title="{Binding Title}">
-            <oxy:PlotView.>
-                <oxy:LineSeries ItemsSource="{Binding Points}"/>
-            </oxy:<Unknown>>
-        </oxy:<Unknown>>
     </Grid>
 </UserControl>
