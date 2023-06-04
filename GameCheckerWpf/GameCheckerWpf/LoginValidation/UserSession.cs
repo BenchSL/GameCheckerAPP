@@ -11,5 +11,10 @@ namespace GameCheckerWpf.LoginValidation
     {
         public static bool isValid { get; set; }
         public static UserModel loggedUser { get; set; }
+
+        public static bool isUserLoggedIn()
+        {
+            return loggedUser != null;
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace GameCheckerAPI.Repos
     public interface IComputerHardwareRepository
     {
         public Task<ComputerHardware> addHardware(bool isUserLoggedIn, ComputerHardware computerHardware);
+        public Task<ComputerHardware> getHardware(int id);
     }
 }

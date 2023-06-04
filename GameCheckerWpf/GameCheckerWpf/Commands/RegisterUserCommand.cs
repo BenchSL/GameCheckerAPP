@@ -46,6 +46,7 @@ namespace GameCheckerWpf.Commands
             {
                 try
                 {
+                    
                     registerUserModel = (await userService.registerUser(viewModel.UserName, viewModel.Password, viewModel.Email));
                     RegisterSuccessfulWindow registerSuccessfulWindow = new RegisterSuccessfulWindow(new RegisterSuccessfulMessage($"You have successfully made an account {registerUserModel.UserName}"));
                     registerSuccessfulWindow.ShowDialog();

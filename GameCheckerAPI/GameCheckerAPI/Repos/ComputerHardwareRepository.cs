@@ -1,6 +1,7 @@
 ﻿using GameCheckerAPI.Database;
 using GameCheckerAPI.Helper;
 using GameCheckerAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace GameCheckerAPI.Repos
@@ -21,6 +22,12 @@ namespace GameCheckerAPI.Repos
                 }
             }
             return null;
+        }
+
+        public async Task<ComputerHardware> getHardware(int id)
+        {
+            var result = await gameDbContext.computerHardware.FirstOrDefaultAsync(x => x.id == id);
+            return result;
         }
     }
 }

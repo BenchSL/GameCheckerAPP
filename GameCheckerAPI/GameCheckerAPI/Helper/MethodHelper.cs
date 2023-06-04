@@ -9,7 +9,7 @@ namespace GameCheckerAPI.Helper
     public static class MethodHelper
     {
         private static char[] startGuid = { 'A', 'B', 'B', 'C', 'D', 'E', 'F', 'G' };
-        private static char[] endGuid = { '1', '2', '3' };
+        private static char[] endGuid = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
         private static int START_GUID_LENGTH = 4;
         private static int END_GUID_LENGTH = 6;
 
@@ -45,7 +45,5 @@ namespace GameCheckerAPI.Helper
             }
             return result;
         }
-
-
     }
 }

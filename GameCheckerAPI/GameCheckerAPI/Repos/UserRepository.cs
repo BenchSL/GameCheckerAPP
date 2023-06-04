@@ -22,9 +22,9 @@ namespace GameCheckerAPI.Repos
             registerUser.Username = userName;
             registerUser.Password = password;
             registerUser.Email = email;
-            if (!findExistingUser(registerUser.Username))
+            if (!findExistingUser(registerUser.Username)) //add new hardware
             {
-                var result = await gameDbContext.userModel.AddAsync(registerUser); //user not found, saving new user in DB
+                var result = await gameDbContext.userModel.AddAsync(registerUser); //user not found, saving new user in DB 
                 await gameDbContext.SaveChangesAsync();
                 return result.Entity;
             } else
@@ -87,6 +87,7 @@ namespace GameCheckerAPI.Repos
 
             return um;
         }
+
 
         private bool findExistingUser(string username)
         {
