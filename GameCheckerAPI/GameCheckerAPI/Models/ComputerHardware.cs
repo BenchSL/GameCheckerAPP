@@ -1,25 +1,18 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace GameCheckerAPI.Models
 {
     public class ComputerHardware
     {
-        [JsonPropertyName("id")]
+        [Key]
         public int id { get; set; }
-
-        [JsonPropertyName("CPU")]
         public string CPU { get; set; }
-
-        [JsonPropertyName("RAM")]
         public string RAM { get; set; }
 
-        [JsonPropertyName("OS")]
         public string OS { get; set; }
-
-        [JsonPropertyName("GraphicsCard")]
         public string GraphicsCard { get; set; }
 
-        [JsonPropertyName("guid")]
         public string guid { get; set; }
 
         public ComputerHardware()

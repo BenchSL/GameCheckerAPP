@@ -5,6 +5,6 @@ namespace GameCheckerAPI.Repos
 {
     public interface IHardware2UserRepository
     {
-        public Task<Hardware2User> addHardware2User(ComputerHardware computerHardware, UserModel user);
+        public Task<Hardware2User> addHardware2User(int computerHardwareId, int userId);
     }
 }

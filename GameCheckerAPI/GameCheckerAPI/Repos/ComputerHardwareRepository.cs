@@ -17,12 +17,12 @@ namespace GameCheckerAPI.Repos
 
         public async Task<ComputerHardware> addHardware(ComputerHardware computerHardware)
         {
-                if (!MethodHelper.guidExists(computerHardware, new DbInject(gameDbContext))) 
-                {
-                    var result = await gameDbContext.computerHardware.AddAsync(computerHardware);
-                    await gameDbContext.SaveChangesAsync();
-                    return result.Entity;
-                }
+            if (!MethodHelper.guidExists(computerHardware, new DbInject(gameDbContext))) 
+            {
+                var result = await gameDbContext.computerHardware.AddAsync(computerHardware);
+                await gameDbContext.SaveChangesAsync();
+                return result.Entity;
+            }
             return null;
         }
 

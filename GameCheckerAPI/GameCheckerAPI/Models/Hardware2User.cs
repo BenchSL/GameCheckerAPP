@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameCheckerAPI.Models
 {
@@ -6,8 +7,14 @@ namespace GameCheckerAPI.Models
     {
         [Key]
         public int id { get; set; }
-        public UserModel user { get; set; }
-        public ComputerHardware computerHardware { get; set; }
+
+        [ForeignKey("UserModel")]
+        public int UserId { get; set; }
+        public UserModel User { get; set; }
+
+        [ForeignKey("ComputerHardware")]
+        public int ComputerHardwareId { get; set; }
+        public ComputerHardware ComputerHardware { get; set; }
 
         public Hardware2User()
         {
@@ -16,8 +23,8 @@ namespace GameCheckerAPI.Models
 
         public Hardware2User(UserModel user, ComputerHardware computerHardware)
         {
-            this.user = user;
-            this.computerHardware = computerHardware;
+            this.User = user;
+            this.ComputerHardware = computerHardware;
         }
     }
 }

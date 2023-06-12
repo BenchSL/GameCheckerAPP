@@ -45,5 +45,15 @@ namespace GameCheckerAPI.Helper
             }
             return result;
         }
+
+        public static bool hardwareAndUserGuidExist(int hardwareId, int userId, DbInject dbInject)
+        {
+            bool result = false;
+            if (hardwareId != 0 && userId != 0)
+            {
+                result = (dbInject.getGameContext.hardware2Users.Any(x => x.ComputerHardwareId == hardwareId && x.UserId == userId));
+            }
+            return result;
+        }
     }
 }
