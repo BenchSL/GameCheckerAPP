@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using GameCheckerWpf.Models;
 using GameCheckerWpf.RegisterAutenticationWindows;
 using GameCheckerWpf.Exceptions;
+using GameCheckerWpf.Helper;
 
 namespace GameCheckerWpf.Commands
 {
@@ -16,6 +17,7 @@ namespace GameCheckerWpf.Commands
     {
 
         private readonly UserService userService;
+        private readonly HardwareService hardwareService;
         private readonly HttpClient httpClient = new HttpClient();
         MainWindowViewModel viewModel;
 
@@ -23,6 +25,7 @@ namespace GameCheckerWpf.Commands
         {
             this.viewModel = viewModel;
             userService = new UserService(httpClient);
+            hardwareService = new HardwareService(httpClient);
         }
 
         public override void Execute(object? parameter)
@@ -37,6 +40,7 @@ namespace GameCheckerWpf.Commands
             userModel.Password = viewModel.Password;
             userModel.Email = viewModel.Email;
             UserModel registerUserModel = new UserModel();
+            GameCheckerAPI.Models.ComputerHardware computerHardware2Add = HardwareHelper.getCurrentHardware();
 
             if (userModel.Password != viewModel.ConfirmPassword)
             {
@@ -46,7 +50,7 @@ namespace GameCheckerWpf.Commands
             {
                 try
                 {
-                    
+                    computerHardware2Add = (await hardwareService.addHardware(computerHardware2Add.CPU, computerHardware2Add.RAM, computerHardware2Add.OS, computerHardware2Add.GraphicsCard, computerHardware2Add.guid));
                     registerUserModel = (await userService.registerUser(viewModel.UserName, viewModel.Password, viewModel.Email));
                     RegisterSuccessfulWindow registerSuccessfulWindow = new RegisterSuccessfulWindow(new RegisterSuccessfulMessage($"You have successfully made an account {registerUserModel.UserName}"));
                     registerSuccessfulWindow.ShowDialog();

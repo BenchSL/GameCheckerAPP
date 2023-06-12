@@ -17,6 +17,7 @@ namespace GameCheckerWpf.Models
         private string disc;
         private string motherboard;
         private string randomAccessMemory;
+        private string guid;
 
         public string OperatingSystem
         {
@@ -75,6 +76,16 @@ namespace GameCheckerWpf.Models
             {
                 randomAccessMemory = value;
                 OnPropertyChanged(nameof(RandomAccessMemory));
+            }
+        }
+
+        public string Guid
+        {
+            get { return guid; }
+            set
+            {
+                guid = value;
+                OnPropertyChanged(nameof(Guid));
             }
         }
 

@@ -1,9 +1,12 @@
-﻿using GameCheckerWpf.Models;
+﻿
+using GameCheckerAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace GameCheckerWpf.Services
@@ -17,10 +20,14 @@ namespace GameCheckerWpf.Services
             this.client = client;
         }
 
-        public async Task<ComputerHardware> addGame(GameModel gameM)
+        public async Task<ComputerHardware> addHardware(string cpu, string ram, string os, string graphicsCard, string guid)
         {
-            var response = await client.PostAsJsonAsync("http://localhost:31686/api/Game", gameM);
-            return await response.Content.ReadFromJsonAsync<GameModel>();
+            return await client.GetFromJsonAsync<ComputerHardware>($"http://localhost:31686/api/ComputerHardware/{cpu}/{ram}/{os}/{graphicsCard}/{guid}");
+        }
+
+        public async Task<ComputerHardware> getHardware(int id)
+        {
+            return await client.GetFromJsonAsync<ComputerHardware>($"http://localhost:31686/api/ComputerHardware/{id}");
         }
     }
 }

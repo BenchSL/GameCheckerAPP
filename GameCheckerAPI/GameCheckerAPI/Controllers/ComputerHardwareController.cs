@@ -30,15 +30,32 @@ namespace GameCheckerAPI.Controllers
             return result;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<ComputerHardware>> addHardware([FromBody]ComputerHardware computerHardware, [FromBody]bool userLoggedIn)
+        [HttpGet("{cpu}/{ram}/{os}/{graphicsCard}/{guid}")]
+        public async Task<ActionResult<ComputerHardware>> addHardware(string cpu, string ram, string os, string graphicsCard, string guid)
         {
-            if (computerHardware == null)
+            ComputerHardware computerHardware = new ComputerHardware();
+            if (cpu != null)
             {
-                return BadRequest();
+                computerHardware.CPU = cpu;
+            }
+            if (graphicsCard != null)
+            {
+                computerHardware.GraphicsCard = graphicsCard;
+            } 
+            if (guid != null)
+            {
+                computerHardware.guid = guid;
+            }
+            if (os != null)
+            {
+                computerHardware.OS = os;
+            }
+            if (ram != null)
+            {
+                computerHardware.RAM = ram;
             }
 
-            var result = await computerHardwareRepository.addHardware(userLoggedIn, computerHardware);
+            var result = await computerHardwareRepository.addHardware(computerHardware);
             return CreatedAtAction(nameof(getHardware), new { Id = result.id }, result);
         }
     }

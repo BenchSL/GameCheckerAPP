@@ -1,8 +1,13 @@
-﻿using GameCheckerAPI.Models;
+﻿using GameCheckerAPI.Helper;
+using GameCheckerAPI.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Management;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace GameCheckerAPI.Helper
+namespace GameCheckerWpf.Helper
 {
     public class HardwareHelper
     {
@@ -21,7 +26,7 @@ namespace GameCheckerAPI.Helper
         }
 
         public string getOS()
-        { 
+        {
             string os = System.Environment.OSVersion.ToString();
             if (os != null)
             {

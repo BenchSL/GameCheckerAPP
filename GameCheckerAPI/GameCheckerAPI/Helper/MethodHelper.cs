@@ -39,7 +39,7 @@ namespace GameCheckerAPI.Helper
         public static bool guidExists(ComputerHardware computerHardware, DbInject dbInject)
         {
             bool result = false;
-            if (computerHardware != null && dbInject != null)
+            if (computerHardware != null && dbInject != null && computerHardware.guid != null)
             {
                 result = dbInject.getGameContext.computerHardware.Any(x => x.guid == computerHardware.guid);
             }

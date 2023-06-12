@@ -36,6 +36,7 @@ namespace GameCheckerAPI
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAutenticationService, AutenticationService>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IComputerHardwareRepository, ComputerHardwareRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
