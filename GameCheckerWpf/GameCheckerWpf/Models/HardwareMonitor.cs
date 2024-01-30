@@ -122,7 +122,7 @@ namespace GameCheckerWpf.Models
 
         private void DispatcherTimer_Tick(object? sender, EventArgs e)
         {
-            CountCpuInt = (int)myAppCPU.NextValue();
+            CountCpuInt = (int)myAppCPU.NextValue() + 10;
             CountCpu = $"{CountCpuInt.ToString()}%";
 
             CountMemoryInt = (int)MyMem.NextValue() - 6;

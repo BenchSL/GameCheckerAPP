@@ -18,26 +18,26 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="CPU usage" Width="150" Height="50" FontSize="30" Foreground="White" Margin="74,12,576,163"></TextBlock>
+        <TextBlock Text="CPU usage" Width="150" Height="50" FontSize="30" Foreground="White" Margin="151,124,499,276"></TextBlock>
         <xrpb:RadialProgressBar Value="{Binding CountCpuInt, UpdateSourceTrigger=PropertyChanged}"
-                Grid.Column="0" Grid.Row="0"                    
-			    Width="100" Height="100"
-                Margin="99,62,601,63"
+                Grid.Column="0" Grid.Row="0"
+                Margin="119,174,467,94"
                 Foreground="{StaticResource ProgressBarRadialGradientBrush}"/>
-        <Label Content="{Binding CountCpu}" Height="50" Width="70" FontFamily="Times New Roman" Foreground="White" FontSize="30" Margin="119,88,621,87"></Label>
+        <Label Content="{Binding CountCpu}" Height="50" Width="70" FontFamily="Times New Roman" Foreground="White" FontSize="30" Margin="191,240,539,160"></Label>
 
-        <TextBlock Text="Memory usage" Height="50" Width="200" FontSize="30" Foreground="White" Margin="300,12,300,163"></TextBlock>
+        <TextBlock Text="Memory usage" Height="50" Width="200" FontSize="30" Foreground="White" Margin="475,117,125,283"></TextBlock>
         <xrpb:RadialProgressBar Value="{Binding CountMemoryInt, UpdateSourceTrigger=PropertyChanged}"
-			    Width="100" Height="100"
-                Margin="350,62,350,63" 
+                Grid.Column="0" Grid.Row="0"
+                Margin="468,180,118,90"
+                BorderThickness="5000"
                 Foreground="{StaticResource ProgressBarRadialGradientBrush}"/>
-        <Label FontSize="30" Content="{Binding CountMemory}" Height="50" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="White" RenderTransformOrigin="0.488,0.514" Margin="369,0,0,0"/>
+        <Label FontSize="30" Content="{Binding CountMemory}" Height="50" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Times New Roman" Foreground="White" RenderTransformOrigin="0.488,0.514" Margin="540,240,0,0"/>
 
     </Grid>
 </UserControl>

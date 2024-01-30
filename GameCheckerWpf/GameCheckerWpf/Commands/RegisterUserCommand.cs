@@ -11,6 +11,7 @@ using GameCheckerWpf.RegisterAutenticationWindows;
 using GameCheckerWpf.Exceptions;
 using GameCheckerWpf.Helper;
 
+
 namespace GameCheckerWpf.Commands
 {
     public class RegisterUserCommand : MethodCommandBase
@@ -18,6 +19,7 @@ namespace GameCheckerWpf.Commands
 
         private readonly UserService userService;
         private readonly HardwareService hardwareService;
+        private readonly Hardware2UserService hardware2UserService;
         private readonly HttpClient httpClient = new HttpClient();
         MainWindowViewModel viewModel;
 
@@ -26,6 +28,7 @@ namespace GameCheckerWpf.Commands
             this.viewModel = viewModel;
             userService = new UserService(httpClient);
             hardwareService = new HardwareService(httpClient);
+            hardware2UserService = new Hardware2UserService(httpClient);
         }
 
         public override void Execute(object? parameter)
@@ -41,6 +44,7 @@ namespace GameCheckerWpf.Commands
             userModel.Email = viewModel.Email;
             UserModel registerUserModel = new UserModel();
             GameCheckerAPI.Models.ComputerHardware computerHardware2Add = HardwareHelper.getCurrentHardware();
+            GameCheckerAPI.Models.Hardware2User hardware2User = new GameCheckerAPI.Models.Hardware2User();
 
             if (userModel.Password != viewModel.ConfirmPassword)
             {
@@ -52,6 +56,7 @@ namespace GameCheckerWpf.Commands
                 {
                     computerHardware2Add = (await hardwareService.addHardware(computerHardware2Add.CPU, computerHardware2Add.RAM, computerHardware2Add.OS, computerHardware2Add.GraphicsCard, computerHardware2Add.guid));
                     registerUserModel = (await userService.registerUser(viewModel.UserName, viewModel.Password, viewModel.Email));
+                    //hardware2User = (await hardware2UserService.addHardware2User(computerHardware2Add.id, registerUserModel.Id));
                     RegisterSuccessfulWindow registerSuccessfulWindow = new RegisterSuccessfulWindow(new RegisterSuccessfulMessage($"You have successfully made an account {registerUserModel.UserName}"));
                     registerSuccessfulWindow.ShowDialog();
                 }

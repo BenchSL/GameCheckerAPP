@@ -55,5 +55,16 @@ namespace GameCheckerAPI.Helper
             }
             return result;
         }
+
+        public static bool hardwareSpecificationExists(Specification spec, ComputerHardware computerHardware, DbInject dbInject)
+        {
+            bool result = false;
+            if (spec != null && computerHardware != null)
+            {
+                result = (dbInject.getGameContext.Specification.Any(x => x.id == spec.id));
+                result = (dbInject.getGameContext.computerHardware.Any(x => x.id == computerHardware.id));
+            }
+            return result;
+        }
     }
 }

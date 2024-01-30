@@ -4,14 +4,16 @@ using GameCheckerAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameCheckerAPI.Migrations
 {
     [DbContext(typeof(GameContext))]
-    partial class GameContextModelSnapshot : ModelSnapshot
+    [Migration("20230707184133_dddd")]
+    partial class dddd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,26 +38,6 @@ namespace GameCheckerAPI.Migrations
                     b.ToTable("Account");
                 });
 
-            modelBuilder.Entity("GameCheckerAPI.Models.CanRunAudit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("CanRun")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GameModelId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameModelId");
-
-                    b.ToTable("runAudit");
-                });
-
             modelBuilder.Entity("GameCheckerAPI.Models.ComputerHardware", b =>
                 {
                     b.Property<int>("id")
@@ -74,9 +56,6 @@ namespace GameCheckerAPI.Migrations
 
                     b.Property<string>("RAM")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RankingScale")
-                        .HasColumnType("int");
 
                     b.Property<string>("guid")
                         .HasColumnType("nvarchar(max)");
@@ -215,17 +194,6 @@ namespace GameCheckerAPI.Migrations
                         .HasForeignKey("AccountHolderId");
 
                     b.Navigation("AccountHolder");
-                });
-
-            modelBuilder.Entity("GameCheckerAPI.Models.CanRunAudit", b =>
-                {
-                    b.HasOne("GameCheckerAPI.Models.GameModel", "GameModel")
-                        .WithMany()
-                        .HasForeignKey("GameModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GameModel");
                 });
 
             modelBuilder.Entity("GameCheckerAPI.Models.Hardware2User", b =>

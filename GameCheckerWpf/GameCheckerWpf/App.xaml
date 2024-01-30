@@ -25,5 +25,8 @@
         <DataTemplate DataType="{x:Type viewmodels:HardwareMonitorViewModel}">
             <views:HardwareMonitor />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:GameDetailViewModel}">
+            <views:GameDetail />
+        </DataTemplate>
     </Application.Resources>
 </Application>

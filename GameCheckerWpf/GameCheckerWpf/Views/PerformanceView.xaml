@@ -29,13 +29,22 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Text="Specifications" Grid.Row="0" FontFamily="C:/Users/timzu/OneDrive/Desktop/GameChecker/GameCheckerWpf/GameCheckerWpf/Fonts/#Dosis" Foreground="WhiteSmoke" FontSize="40"></TextBlock>
-            <Button x:Name="btn_exportPdf" Content="Export pdf" Margin="283,18,18,37" Background="Orange" Foreground="White" FontFamily="TimesNewRoman" FontSize="10" FontWeight="Bold" Width="70" Height="20" Click="btn_exportPdf_Click">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="btn_exportPdf" Content="Export pdf" Margin="283,18,18,37" Background="Orange" Foreground="White" FontFamily="TimesNewRoman" FontSize="10" FontWeight="Bold" Width="70" Height="20" Command="{Binding ExportPdfCommand}">
+                    <Button.Resources>
+                      <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                      </Style>
+                     </Button.Resources>
+                </Button>
+                <Button x:Name="btn_checkDetails" Content="Game details" Margin="283,-28,18,37" Background="Orange" Foreground="White" FontFamily="TimesNewRoman" FontSize="10" FontWeight="Bold" Width="70" Height="20" Command="{Binding SelectGameCommand}" CommandParameter="GameDetail">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
 
             <TextBlock Text="{Binding OperatingSystem}"
                        x:Name="osTxt"
@@ -125,9 +134,22 @@
             </Image>
         </Grid>
         <DataGrid x:Name="dataGame"
-                  AutoGenerateColumns="True" 
                   Grid.Column="1" 
                   Background="#132247">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}" />
+                <DataGridTextColumn Header="App ID" Binding="{Binding Appid}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Playtime" Binding="{Binding Playtime_forever}" />
+                <DataGridTextColumn Header="Image Icon Path" Binding="{Binding Img_icon_url}" />
+                <DataGridCheckBoxColumn Header="Has Community Visible Stats" Binding="{Binding Has_community_visible_stats}" />
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Details" Click="Details_Click" />
+                    <MenuItem Header="Can I run it?" Click="MenuItem_Click" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
         <!-- {Binding OperatingSystem} -->
     </Grid>

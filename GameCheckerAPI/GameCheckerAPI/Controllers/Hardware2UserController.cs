@@ -7,7 +7,7 @@ namespace GameCheckerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Hardware2UserController : ControllerBase
+    public class Hardware2UserController : ControllerBase 
     {
         private readonly IHardware2UserRepository hardware2UserRepository;
 

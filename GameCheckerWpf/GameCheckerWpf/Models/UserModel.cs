@@ -19,6 +19,16 @@ namespace GameCheckerWpf.Models
         private string password;
         private string email;
 
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged(nameof(Id));
+            }
+        }
+
         public string UserName
         {
             get { return username; }

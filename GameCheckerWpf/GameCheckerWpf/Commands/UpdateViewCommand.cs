@@ -59,6 +59,11 @@ namespace GameCheckerWpf.Commands
             {
                 viewModel.SelectedViewModel = new RegisterViewModel();
             }
+
+            //else if (parameter.ToString() == "GameDetail")
+            //{
+            //    viewModel.SelectedViewModel = new GameDetailViewModel();
+            //}
         }
     }
 }
