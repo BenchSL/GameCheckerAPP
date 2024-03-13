@@ -1,4 +1,6 @@
-﻿using GameCheckerWpf.Commands;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using GameCheckerWpf.Commands;
+using GameCheckerWpf.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +59,7 @@ namespace GameCheckerWpf.ViewModels
         public ICommand UpdateViewCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
+        public ICommand ShowGameDetailCommand { get; set; }
 
         private BaseViewModel _selectedViewModel = new MainViewModel();
         public BaseViewModel SelectedViewModel
@@ -73,6 +76,12 @@ namespace GameCheckerWpf.ViewModels
             UpdateViewCommand = new UpdateViewCommand(this);
             LoginCommand = new LoginUserCommand(this);
             RegisterCommand = new RegisterUserCommand(this);
+            ShowGameDetailCommand = new RelayCommand<object>(game => ShowGameDetail(game));
+        }
+
+        private void ShowGameDetail(object game)
+        {
+            SelectedViewModel = new GameDetailViewModel(game as GameModel);
         }
 
     }

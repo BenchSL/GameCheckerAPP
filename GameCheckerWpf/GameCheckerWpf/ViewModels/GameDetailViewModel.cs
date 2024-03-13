@@ -11,18 +11,48 @@ namespace GameCheckerWpf.ViewModels
 {
     public class GameDetailViewModel : BaseViewModel
     {
-        private readonly ICommand _updateViewCommand;
-        private readonly GameModel _gameModel;
+        private string appId;
+        private string name;
+        private string playtimeForever;
+        private string imgIconUrl;
+        private bool hasCommunityVisibleStats;
 
-        public GameDetailViewModel(ICommand updateViewCommand) //, GameModel gameModel
+        public string AppId
         {
-            _updateViewCommand = updateViewCommand;
-            //_gameModel = gameModel;
+            get => appId;
+            set { appId = value; OnPropertyChanged(nameof(AppId)); }
         }
 
-        public GameDetailViewModel()
+        public string Name
         {
+            get => name;
+            set { name = value; OnPropertyChanged(nameof(Name)); }
+        }
 
+        public string PlayTimeForever
+        {
+            get => playtimeForever;
+            set { playtimeForever = value; OnPropertyChanged(nameof(PlayTimeForever)); }
+        }
+
+        public string ImgIconUrl
+        {
+            get => imgIconUrl;
+            set { imgIconUrl = value; OnPropertyChanged(nameof(ImgIconUrl)); }
+        }
+        public bool HasCommunityVisibleStats
+        {
+            get => hasCommunityVisibleStats;
+            set { hasCommunityVisibleStats = value; OnPropertyChanged(nameof(HasCommunityVisibleStats)); }
+        }
+
+        public GameDetailViewModel(GameModel game)
+        {
+            AppId = game.Appid.ToString();
+            Name = game.Name;
+            playtimeForever = game.Playtime_forever.ToString();
+            imgIconUrl = game.Img_icon_url;
+            hasCommunityVisibleStats = game.Has_community_visible_stats;
         }
     }
 }

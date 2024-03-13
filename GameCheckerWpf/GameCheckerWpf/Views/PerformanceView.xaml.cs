@@ -54,7 +54,15 @@ namespace GameCheckerWpf.Views
 
         private void Details_Click(object sender, RoutedEventArgs e)
         {
-
+            if (dataGame.SelectedItem is GameModel selectedGame)
+            {
+                GameDetailsWindow detailsWindow = new GameDetailsWindow(selectedGame);
+                detailsWindow.Show(); 
+            }
+            else
+            {
+                MessageBox.Show("Please select a game from the list.");
+            }
         }
     }
 }
