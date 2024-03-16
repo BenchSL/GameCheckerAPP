@@ -147,7 +147,7 @@
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Details" Click="Details_Click" />
-                    <MenuItem Header="Can I run it?" />
+                    <MenuItem Header="Can I run it?" Click="CanIrun_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>

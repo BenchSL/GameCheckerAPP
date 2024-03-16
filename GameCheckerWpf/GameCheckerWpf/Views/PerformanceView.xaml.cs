@@ -57,7 +57,22 @@ namespace GameCheckerWpf.Views
             if (dataGame.SelectedItem is GameModel selectedGame)
             {
                 GameDetailsWindow detailsWindow = new GameDetailsWindow(selectedGame);
-                detailsWindow.Show(); 
+                detailsWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a game from the list.");
+            }
+        }
+
+        private void CanIrun_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGame.SelectedItem is GameModel selectedGame)
+            {
+                bool canRun = selectedGame.canRun;
+
+                CanRunWindow canRunWindow = new CanRunWindow(canRun, selectedGame);
+                canRunWindow.Show();
             }
             else
             {

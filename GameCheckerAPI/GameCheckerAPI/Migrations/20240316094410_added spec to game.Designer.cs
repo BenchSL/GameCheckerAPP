@@ -4,14 +4,16 @@ using GameCheckerAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameCheckerAPI.Migrations
 {
     [DbContext(typeof(GameContext))]
-    partial class GameContextModelSnapshot : ModelSnapshot
+    [Migration("20240316094410_added spec to game")]
+    partial class addedspectogame
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,9 +109,6 @@ namespace GameCheckerAPI.Migrations
 
                     b.Property<int>("Playtime_forever")
                         .HasColumnType("int");
-
-                    b.Property<bool>("canRun")
-                        .HasColumnType("bit");
 
                     b.Property<string>("cpu")
                         .HasColumnType("nvarchar(max)");

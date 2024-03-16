@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:GameCheckerWpf.Views"
         mc:Ignorable="d"
         Background="#181735"
+        ResizeMode="NoResize"
         Title="GameDetailsWindow" Height="450" Width="800">
     <Window.Resources>
         <converters:MinutesToHoursConverter x:Key="MinutesToHoursConverter" />
@@ -31,6 +32,21 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Has Community Visible Stats:" FontWeight="Bold" FontSize="20" Foreground="white"/>
                 <TextBlock Text="{Binding Has_community_visible_stats}" Margin="5,0,0,0" FontSize="20" Foreground="white"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="20,316,494,0">
+            <TextBlock Text="Recommended requirements:" FontWeight="Bold" FontSize="20" Foreground="White"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="CPU: " Foreground="White" FontWeight="Bold" FontSize="15" ></TextBlock>
+                <TextBlock Text="{Binding cpu}" FontSize="15" Foreground="White"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="GPU: " Foreground="White" FontWeight="Bold" FontSize="15" ></TextBlock>
+                <TextBlock Text="{Binding gpu}" FontSize="15" Foreground="White"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="RAM: " Foreground="White" FontWeight="Bold" FontSize="15" ></TextBlock>
+                <TextBlock Text="{Binding ram}" FontSize="15" Foreground="White"></TextBlock>
             </StackPanel>
         </StackPanel>
         <Image Source="{Binding Img_icon_url, Converter={StaticResource ImagePathConverter}}" Width="270" Height="250" Margin="498,92,32,92"/>
